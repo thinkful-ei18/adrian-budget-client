@@ -1,33 +1,5 @@
 /* For mobile phones: */
 
-.navbar {
-  align-items: center;
-  background-color: #675FFD;
-  color: #FDFDFD;
-  display: flex;
-  flex-direction: row;
-  height: 50px;
-  justify-content: flex-start;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.navButton {
-  background-color: #7069FD;
-  border-style: none;
-  color: white;
-  margin-right: 10px;
-  height: 33px;
-  justify-content: space-between;
-  padding: 5px;
-  width: 60px;
-}
-
-.appName {
-  flex: 1;
-  text-transform: uppercase;
-}
-
 @media only screen and (min-width: 768px)  {
   /* For desktop: */
 
