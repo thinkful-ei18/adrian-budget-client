@@ -6,8 +6,10 @@ export default class Navbar extends Component {
     return(
       <nav className='navbar'>
         <h1 className='appName'>Windfall</h1>
-        <button className="navButton">Sign Up</button>
-        <button className="navButton">Log in</button>
+        <ul className='navlist'>
+          <li>Sign up</li>
+          <li>Log in</li>
+        </ul>
       </nav>
     );
   }
