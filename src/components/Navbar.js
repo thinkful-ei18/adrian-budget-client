@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import './Navbar.css';
 
 export default class Navbar extends Component {
   render() {
     return(
-      <nav>
-      <h1>Hello world!</h1>
+      <nav className='navbar'>
+      <h1 classname='appName'>Windfall</h1>
+      <button>Sign Up</button>
+      <button>Log in</button>
       </nav>
     );
   }
