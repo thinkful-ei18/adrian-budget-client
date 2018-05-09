@@ -4,8 +4,8 @@ import './LandingPage.css';
 export default class LandingPage extends Component {
   render() {
     return(
-      <div className='landingPage'>
-        <header className='header'>
+      <div>
+        <header>
           <p>Header info about the app!</p>
         </header>
       </div>
