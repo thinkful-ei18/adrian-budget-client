@@ -1,3 +1,5 @@
+/* For mobile phones: */
+
 .navbar {
   background-color: #675FFD;
   color: white;
@@ -5,4 +7,13 @@
 
 .appName {
   text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px)  {
+  /* For desktop: */
+
+  .navbar {
+    background-color: aquamarine;
+  }
+
 }
