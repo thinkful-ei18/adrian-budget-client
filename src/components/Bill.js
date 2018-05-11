@@ -22,15 +22,15 @@ render() {
       <div className={this.state.class}>
           <button>Toggle</button>
         <div className='billheader'>
-          <h1>{props.name}</h1>
-          <h2>{props.amount}</h2>
+          <h1>{this.props.name}</h1>
+          <h2>{this.props.amount}</h2>
         </div>
         <div className='billwrap'>
           <div className='billinfo'>
-            <p>{props.duedate}</p>
-            <div>{props.beenpaid}</div>
-            <p>{props.billinterval}</p>
-            <div>{props.category_id}</div>
+            <p>{this.props.duedate}</p>
+            <div>{this.props.beenpaid}</div>
+            <p>{this.props.billinterval}</p>
+            <div>{this.props.category_id}</div>
           </div>
         </div>
       </div>
