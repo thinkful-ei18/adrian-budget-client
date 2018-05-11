@@ -1,0 +1,28 @@
+.accordion {
+  overflow: hidden;
+};
+
+/* .title {
+
+}; */
+
+.collapsed {
+  background-color: lightgray;
+  color: red;
+}
+
+.expanded {
+  color: blue;
+  background-color: lightpink;
+}
+
+.billheader {
+  overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* .billwrap {
+  color: red;
+} */
