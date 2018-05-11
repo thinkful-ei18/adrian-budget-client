@@ -1,0 +1,25 @@
+.closed {
+  background-color: red;
+  color: white;
+}
+
+.open {
+  background-color: blue;
+  color: white;
+}
+
+.closed .billinfo  {
+  display: none;
+}
+
+.billheader {
+  overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.billwrap {
+  overflow: hidden;
+  transition: all .2s ease-in;
+}
