@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Accordion from './Accordion';
 
 export default class Dashboard extends Component {
   render() {
@@ -6,11 +7,7 @@ export default class Dashboard extends Component {
       <div>
           <button>Hamburger Icon</button>
         <div>
-          <ul>
-            <li>Bill 1</li>
-            <li>Bill 2</li>
-            <li>Bill 3</li>
-          </ul>
+          <Accordion/>
           <nav>
             <ul>
               <li>New Bill</li>
