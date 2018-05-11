@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
+import './Bill.css';
 
 export default class Bill extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       open: false,
-      class: "collapsed"
+      class: "closed"
     };
+
+
+
   }
 
   handleClick() {
     if (this.state.open) {
-      this.setState({open: false, class: "collapsed"}); // collapse the bill
+      console.log('card closed');
+      this.setState({open: false, class: "closed"}); // collapse the bill
     } else {
-      this.setState({open: true, class: "expanded"}); // expand the bill
+      console.log('card opened');
+      this.setState({open: true, class: "open"}); // expand the bill
     }
   }
 
@@ -21,7 +28,7 @@ render() {
   return (
       <div className={this.state.class}>
           <button>Toggle</button>
-        <div className='billheader'>
+        <div className='billheader' onClick={() => {this.handleClick()}}>
           <h1>{this.props.name}</h1>
           <h2>{this.props.amount}</h2>
         </div>
