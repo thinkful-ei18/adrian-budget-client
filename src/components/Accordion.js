@@ -15,3 +15,7 @@ export default class Accordion extends Component {
     );
   }
 }
+
+Accordion.defaultProps = {
+  title: 'Your Bills'
+}
