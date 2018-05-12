@@ -9,24 +9,17 @@ export default class Bill extends Component {
       expanded: false
     };
 
-
-
+    this.togglePanel = this.togglePanel.bind(this);
   }
 
   togglePanel() {
-    if (this.state.expanded) {
-      console.log('card closed');
-      this.setState({expanded: false}); // collapse the bill
-    } else {
-      console.log('card expanded');
-      this.setState({expanded: true}); // expand the bill
-    }
+    this.setState({expanded: !this.state.expanded});
   }
 
 render() {
-  const { name, amount, duedate, beenpaid, billinterval, category_id } = this.props;
+  const { id, name, amount, duedate, beenpaid, billinterval, category_id } = this.props;
 
-  const collapsibleIdentifier = `bill-content-${id}`;
+  const collapsibleIdentifier = `collapsible-${id}`;
 
   return (
       <Fragment>
@@ -41,9 +34,11 @@ render() {
         </button>
           <div
             id={collapsibleIdentifier}
-            className='bill-content'
+            className='collapsible'
             aria-hidden={!this.state.expanded}
           >
+            <h1>{name}</h1>
+            <p>${amount}</p>
             <p>
               {duedate}
               {beenpaid}
