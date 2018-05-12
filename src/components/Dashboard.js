@@ -4,14 +4,16 @@ import List from './List';
 export default class Dashboard extends Component {
   render() {
     return (
-      <main>
-        <ul>
-          <li>New Bill</li>
-          <li>Change Income</li>
-          <li>Logout</li>
-        </ul>
-        <List/>
-      </main>
+      <div>
+        <main>
+          <ul>
+            <li>New Bill</li>
+            <li>Change Income</li>
+            <li>Logout</li>
+          </ul>
+          <List/>
+        </main>
+      </div>
     );
   }
 }
