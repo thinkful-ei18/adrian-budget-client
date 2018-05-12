@@ -13,7 +13,6 @@ export class RegistrationForm extends Component {
   }
 
   render() {
-
     const  { pristine, submitting, handleSubmit } = this.props;
 
     return (
