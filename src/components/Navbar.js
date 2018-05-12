@@ -4,7 +4,7 @@ import './Navbar.css';
 export default class Navbar extends Component {
   render() {
     return(
-     <div>
+     <header>
       <nav>
         <h1>Windfall</h1>
         <ul>
@@ -12,7 +12,7 @@ export default class Navbar extends Component {
           <li>Log in</li>
         </ul>
       </nav>
-    </div>
+    </header>
     );
   }
 }
