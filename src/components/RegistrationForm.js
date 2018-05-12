@@ -13,8 +13,6 @@ export class RegistrationForm extends Component {
 
   render() {
 
-    // const { } = this.props;
-
     return (
       <div>
         <form onSubmit={this.props.handleSubmit((values) => this.handleFormSubmit(values))}>
