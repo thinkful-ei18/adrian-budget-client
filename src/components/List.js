@@ -11,7 +11,7 @@ export default function List(props) {
 
   const listItems = bills.map((item) =>
     <li key={item.id}>
-      <Bill name={item.name} amount={item.amount}/>
+      <Bill id={item.id} name={item.name} amount={item.amount}/>
     </li>
   );
 
