@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Input from "./Input";
 import { required, nonEmpty } from "../utils/validators";
 
-export class RegistrationForm extends Component {
+export class LoginForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
   }
