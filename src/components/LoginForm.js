@@ -19,8 +19,8 @@ export class LoginForm extends Component {
           <form
             onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
           >
-            <label htmlFor="username">Username</label>
 				    <Field
+              label="username"
               component={Input}
               placeholder="sally123"
               type="text"
@@ -28,8 +28,8 @@ export class LoginForm extends Component {
               id="username"
               validate={[required, nonEmpty]}
             />
-				    <label htmlFor="password">Password</label>
 				    <Field
+              label="password"
               component={Input}
               placeholder="••••••••"
               type="password"

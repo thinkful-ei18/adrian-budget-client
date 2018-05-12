@@ -21,27 +21,33 @@ export class RegistrationForm extends Component {
           <form
             onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
           >
-            <label htmlFor="firstName">First Name</label>
             <Field
+              label="First Name"
               component={Input}
               type="text"
               name="firstname"
               placeholder="Sally"/>
-            <label htmlFor="username" >Username</label>
+            <Field
+              label="Monthly Income"
+              component={Input}
+              type="number"
+              name="income"
+              placeholder="2000"/>
             <Field component={Input}
+              label="Username"
               type="text"
               name="username"
               placeholder="sally123"
               validate={[required, nonEmpty, isTrimmed]} />
-            <label htmlFor="password">Password</label>
             <Field
+              label="Password"
               component={Input}
               type="password"
               name="password"
               placeholder="••••••••"
               validate={[required, passwordLength, isTrimmed]} />
-            <label htmlFor="passwordConfirm" >Confirm Password</label>
             <Field
+              label="Confirm Password"
               component={Input}
               type="password"
               name="passwordConfirm"
@@ -49,7 +55,6 @@ export class RegistrationForm extends Component {
               placeholder="••••••••"
             />
             <button
-              className="form-primary-button"
               type="submit"
               disabled={pristine || submitting}
             >
