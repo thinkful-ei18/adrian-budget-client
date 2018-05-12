@@ -1,25 +1,26 @@
-.closed {
-  background-color: red;
-  color: white;
+.bill-toggle-btn::after {
+  display: inline-block;
+  margin-left: 5px;
+  content: '+'
 }
 
-.open {
-  background-color: blue;
-  color: white;
+.bill-toggle-btn[aria-expanded=true]::after {
+  content: '-'
 }
 
-.closed .billinfo  {
-  display: none;
+.collapsible {
+  visibility: hidden;
+  overflow-y: hidden;
+  max-height: 0;
+  transition: max-height .3s linear,
+    overflow-y .75s linear,
+    visibility .75s linear;
 }
 
-.billheader {
-  overflow: hidden;
-  cursor: pointer;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
 
-.billwrap {
-  overflow: hidden;
-  transition: all .2s ease-in;
+.collapsible[aria-hidden=false] {
+  visibility: visible;
+  overflow-y: default;
+  max-height: 1000px;
+  transition: all .75s linear;
 }
