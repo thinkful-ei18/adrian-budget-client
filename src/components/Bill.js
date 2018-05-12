@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './Bill.css';
 
 export default class Bill extends Component {
@@ -6,41 +6,52 @@ export default class Bill extends Component {
     super(props);
 
     this.state = {
-      open: false,
-      class: "closed"
+      expanded: false
     };
 
 
 
   }
 
-  handleClick() {
-    if (this.state.open) {
+  togglePanel() {
+    if (this.state.expanded) {
       console.log('card closed');
-      this.setState({open: false, class: "closed"}); // collapse the bill
+      this.setState({expanded: false}); // collapse the bill
     } else {
-      console.log('card opened');
-      this.setState({open: true, class: "open"}); // expand the bill
+      console.log('card expanded');
+      this.setState({expanded: true}); // expand the bill
     }
   }
 
 render() {
+  const { name, amount, duedate, beenpaid, billinterval, category_id } = this.props;
+
+  const collapsibleIdentifier = `bill-content-${id}`;
+
   return (
-      <div className={this.state.class}>
-          <button>Toggle</button>
-        <div className='billheader' onClick={() => {this.handleClick()}}>
-          <h1>{this.props.name}</h1>
-          <h2>{this.props.amount}</h2>
-        </div>
-        <div className='billwrap'>
-          <div className='billinfo'>
-            <p>{this.props.duedate}</p>
-            <div>{this.props.beenpaid}</div>
-            <p>{this.props.billinterval}</p>
-            <div>{this.props.category_id}</div>
+      <Fragment>
+        <button
+          className='bill-toggle-btn'
+          aria-expanded={this.state.expanded}
+          aria-controls={collapsibleIdentifier}
+          onClick={this.togglePanel}
+        >
+          <h1>{name}</h1>
+          <p>${amount}</p>
+        </button>
+          <div
+            id={collapsibleIdentifier}
+            className='bill-content'
+            aria-hidden={!this.state.expanded}
+          >
+            <p>
+              {duedate}
+              {beenpaid}
+              {billinterval}
+              {category_id}
+            </p>
           </div>
-        </div>
-      </div>
+      </Fragment>
     );
   }
 };
