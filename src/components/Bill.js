@@ -10,10 +10,15 @@ export default class Bill extends Component {
     };
 
     this.togglePanel = this.togglePanel.bind(this);
+    this.deleteBill = this.deleteBill.bind(this);
   }
 
   togglePanel() {
     this.setState({expanded: !this.state.expanded});
+  }
+
+  deleteBill(id) {
+    console.log(`Deleting bill ${id}`);
   }
 
 render() {
@@ -45,6 +50,11 @@ render() {
               {billinterval}
               {category_id}
             </p>
+            <button
+              onClick={() => this.deleteBill(id)}
+            >
+              Delete
+            </button>
           </div>
       </Fragment>
     );
