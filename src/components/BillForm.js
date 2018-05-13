@@ -12,11 +12,7 @@ export class BillForm extends Component {
     const  { pristine, submitting, handleSubmit } = this.props;
 
     return (
-      <div
-      id={collapsibleIdentifier}
-      className='collapsible'
-      aria-hidden={!this.state.expanded}
-    >
+      <div>
       <form
         onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
       >
@@ -53,7 +49,6 @@ export class BillForm extends Component {
           <option value="monthly">Monthly</option>
         </Field>
         <button
-          onClick={() => this.toggleEditing(id)}
         >
           Cancel
         </button>
