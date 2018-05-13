@@ -48,9 +48,9 @@ export class BillForm extends Component {
           value={this.props.interval}
         >
           <option></option>
-          <option value="P [ years-months-days ]">Weekly</option>
-          <option value="P [ years-months-days ]">Bi-weekly</option>
-          <option value="P [ years-months-days ]">Monthly</option>
+          <option value="weekly">Weekly</option>
+          <option value="biweekly">Bi-weekly</option>
+          <option value="monthly">Monthly</option>
         </Field>
         <button
           onClick={() => this.toggleEditing(id)}
