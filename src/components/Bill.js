@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import BillForm from './BillForm';
 import './Bill.css';
 
 export class Bill extends Component {
@@ -19,8 +20,8 @@ export class Bill extends Component {
     this.setState({expanded: !this.state.expanded});
   }
 
-  handleFormSubmit(values) {
-    console.log(values);
+  togglePaid(id) {
+    console.log(`Bill id:${id} toggled as paid/unpaid`);
   }
 
   toggleEditing() {
@@ -35,6 +36,12 @@ render() {
   const { id, title, amount, duedate, beenpaid, interval, category_id } = this.props;
 
   const collapsibleIdentifier = `collapsible-${id}`;
+
+  let info;
+
+  if (this.state.editing) {
+    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval}/>
+  }
 
   return (
       <Fragment>
@@ -65,6 +72,11 @@ render() {
         {interval}
         {category_id}
       </p>
+      <button
+        onClick={() => this.togglePaid(id)}
+      >
+        Mark As Paid
+      </button>
       <button
         onClick={() => this.toggleEditing(id)}
       >
