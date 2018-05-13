@@ -21,7 +21,7 @@ export class BillForm extends Component {
           component={Input}
           type="text"
           name="title"
-          value={this.props.title}
+          value='pizza'
         />
         <Field
           label="Amount"
@@ -49,6 +49,7 @@ export class BillForm extends Component {
           <option value="monthly">Monthly</option>
         </Field>
         <button
+          onClick={this.props.editButton}
         >
           Cancel
         </button>
@@ -64,14 +65,14 @@ export class BillForm extends Component {
   }
 }
 
-BillForm.defaultProps = {
-  name: '',
-  amount: 0,
-  duedate: '',
-  beenpaid: false,
-  interval: '',
-  category_id: []
-}
+// BillForm.defaultProps = {
+//   name: '',
+//   amount: 0,
+//   duedate: '',
+//   beenpaid: false,
+//   interval: '',
+//   category_id: []
+// }
 
 export default reduxForm({
 	form: "BillForm",

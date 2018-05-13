@@ -41,11 +41,42 @@ render() {
   let info;
 
   if (this.state.editing) {
-    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval}/>
+    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval} editButton={this.toggleEditing}/>
+  } else {
+    info =
+    <div
+          id={collapsibleIdentifier}
+          className='collapsible'
+          aria-hidden={!this.state.expanded}
+        >
+          <h1>{title}</h1>
+          <p>${amount}</p>
+          <p>
+            {duedate}
+            {beenpaid}
+            {interval}
+            {category_id}
+          </p>
+          <button
+            onClick={() => this.togglePaid(id)}
+          >
+            Mark As Paid
+          </button>
+          <button
+            onClick={() => this.toggleEditing(id)}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => this.deleteBill(id)}
+          >
+            Delete
+          </button>
+        </div>
   }
 
   return (
-      <Fragment>
+    <Fragment>
         <button
           className='bill-toggle-btn'
           aria-expanded={this.state.expanded}
@@ -60,37 +91,9 @@ render() {
           className='collapsible'
           aria-hidden={!this.state.expanded}
         >
-          <div
-      id={collapsibleIdentifier}
-      className='collapsible'
-      aria-hidden={!this.state.expanded}
-    >
-      <h1>{title}</h1>
-      <p>${amount}</p>
-      <p>
-        {duedate}
-        {beenpaid}
-        {interval}
-        {category_id}
-      </p>
-      <button
-        onClick={() => this.togglePaid(id)}
-      >
-        Mark As Paid
-      </button>
-      <button
-        onClick={() => this.toggleEditing(id)}
-      >
-        Edit
-      </button>
-      <button
-        onClick={() => this.deleteBill(id)}
-      >
-        Delete
-      </button>
-    </div>
-        </div>
-      </Fragment>
+        {info}
+      </div>
+    </Fragment>
     );
   }
 };
