@@ -13,6 +13,7 @@ export class Bill extends Component {
 
     this.togglePanel = this.togglePanel.bind(this);
     this.deleteBill = this.deleteBill.bind(this);
+    this.togglePaid = this.togglePaid.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
   }
 
