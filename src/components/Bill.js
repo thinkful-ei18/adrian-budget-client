@@ -1,6 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import { Field, reduxForm, focus } from "redux-form";
-import Input from "./Input";
 import './Bill.css';
 
 export class Bill extends Component {
@@ -15,7 +13,6 @@ export class Bill extends Component {
     this.togglePanel = this.togglePanel.bind(this);
     this.deleteBill = this.deleteBill.bind(this);
     this.toggleEditing = this.toggleEditing.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   togglePanel() {
@@ -94,8 +91,3 @@ Bill.defaultProps = {
   interval: 'P [ years-months-days ]',
   category_id: [100, 101, 102]
 }
-
-export default reduxForm({
-	form: "Bill",
-	onSubmitFail: (errors, dispatch) => dispatch(focus("Bill", Object.keys(errors)[0]))
-})(Bill)
