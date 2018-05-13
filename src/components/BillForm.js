@@ -69,6 +69,15 @@ export class BillForm extends Component {
   }
 }
 
+BillForm.defaultProps = {
+  name: '',
+  amount: 0,
+  duedate: '',
+  beenpaid: false,
+  interval: '',
+  category_id: []
+}
+
 export default reduxForm({
 	form: "BillForm",
 	onSubmitFail: (errors, dispatch) => dispatch(focus("BillForm", Object.keys(errors)[0]))
