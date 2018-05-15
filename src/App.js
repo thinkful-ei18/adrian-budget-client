@@ -9,7 +9,7 @@ import Dashboard from './components/Dashboard';
 import RegisterForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm';
 import BillForm from './components/BillForm';
-import { IncomeForm } from './components/IncomeForm';
+import IncomeForm from './components/IncomeForm';
 import NotFoundPage from './components/404';
 
 class App extends Component {
