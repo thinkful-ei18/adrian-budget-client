@@ -53,11 +53,32 @@ export class BillForm extends Component {
           <option value="biweekly">Bi-weekly</option>
           <option value="monthly">Monthly</option>
         </Field>
-        {/* <Field
-          component='checkbox'
-        >
-
-        </Field> */}
+        <label>Categories
+        <Field
+          label='Utilities'
+          component={Input}
+          type='checkbox'
+          name='utilities'
+        />
+        <Field
+          label='Food'
+          component={Input}
+          type='checkbox'
+          name='food'
+        />
+        <Field
+          label='Health & Medical'
+          component={Input}
+          type='checkbox'
+          name='entertainment'
+        />
+        <Field
+          label='Transportation'
+          component={Input}
+          type='checkbox'
+          name='transportation'
+        />
+        </label>
         <button
           onClick={editButton}
         >
