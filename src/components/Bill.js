@@ -100,7 +100,7 @@ render() {
 
 Bill.defaultProps = {
   expanded: false,
-  name: 'Happiness',
+  title: 'Happiness',
   amount: 55,
   duedate: '2018-03-20',
   beenpaid: false,
