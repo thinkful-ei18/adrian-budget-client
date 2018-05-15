@@ -5,11 +5,20 @@ import Input from "./Input";
 export class BillForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
-    this.props.reset();
+  }
+
+  componentWillMount() {
+    // This form is reusable; it takes props as initial values.
+    this.props.initialize({
+      title: this.props.title,
+      amount: this.props.amount,
+      duedate: this.props.duedate,
+      interval: this.props.interval
+    });
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit } = this.props;
+    const  { pristine, submitting, handleSubmit, editButton } = this.props;
 
     return (
       <div>
@@ -21,35 +30,36 @@ export class BillForm extends Component {
           component={Input}
           type="text"
           name="title"
-          value='pizza'
         />
         <Field
           label="Amount"
           component={Input}
           type="number"
           name="amount"
-          value={this.props.amount}
         />
         <Field
           label="Due Date"
           component={Input}
           type="date"
           name="date"
-          value={this.props.duedate}
         />
         <Field
           label="Interval"
           component='select'
           name="interval"
-          value={this.props.interval}
         >
           <option></option>
           <option value="weekly">Weekly</option>
           <option value="biweekly">Bi-weekly</option>
           <option value="monthly">Monthly</option>
         </Field>
+        {/* <Field
+          component='checkbox'
+        >
+
+        </Field> */}
         <button
-          onClick={this.props.editButton}
+          onClick={editButton}
         >
           Cancel
         </button>
@@ -65,16 +75,7 @@ export class BillForm extends Component {
   }
 }
 
-// BillForm.defaultProps = {
-//   name: '',
-//   amount: 0,
-//   duedate: '',
-//   beenpaid: false,
-//   interval: '',
-//   category_id: []
-// }
-
 export default reduxForm({
-	form: "BillForm",
+  form: "BillForm",
 	onSubmitFail: (errors, dispatch) => dispatch(focus("BillForm", Object.keys(errors)[0]))
-})(BillForm)
+})(BillForm);
