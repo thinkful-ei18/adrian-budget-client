@@ -3,14 +3,17 @@ import React from 'react';
 export default function User(props){
   return (
     <div>
-      <h1>{props.firstname}</h1>
-      <h2>Income: {props.income}</h2>
+      <h1>Hello {props.firstname}!</h1>
+      <h2>You make ${props.grossincome} a month.</h2>
       <p>
-        {props.quantity}
-        After bills, you'll have: {props.netincome}
-        This could be your windfall. Use it wisely!
+        After bills, you'll have: ${props.netincome} left over.
       </p>
     </div>
   );
-
 }
+
+User.defaultProps = {
+ firstname: 'User',
+ grossincome: 0,
+ netincome: 0
+};
