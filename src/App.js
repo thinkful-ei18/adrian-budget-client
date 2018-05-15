@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import RegisterForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm';
+import BillForm from './components/BillForm';
 import NotFoundPage from './components/404';
 
 class App extends Component {
@@ -18,8 +19,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={LandingPage}/>
           <Route path='/dashboard' component={Dashboard}/>
-          <Route path='/register' component={RegisterForm}/>
           <Route path='/login' component={LoginForm}/>
+          <Route path='/newbill' component={BillForm}/>
+          <Route path='/register' component={RegisterForm}/>
           <Route component={NotFoundPage} />
         </Switch>
         <Footer/>
