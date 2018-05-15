@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard';
 import RegisterForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm';
 import BillForm from './components/BillForm';
+import { IncomeForm } from './components/IncomeForm';
 import NotFoundPage from './components/404';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/dashboard' component={Dashboard}/>
           <Route path='/login' component={LoginForm}/>
           <Route path='/newbill' component={BillForm}/>
+          <Route path='/income' component={IncomeForm}/>
           <Route path='/register' component={RegisterForm}/>
           <Route component={NotFoundPage} />
         </Switch>
