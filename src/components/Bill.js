@@ -101,9 +101,8 @@ render() {
 Bill.defaultProps = {
   expanded: false,
   title: 'Happiness',
-  amount: 55,
-  duedate: '2018-03-20',
+  amount: 0,
+  duedate: '',
   beenpaid: false,
-  interval: 'P [ years-months-days ]',
-  category_id: [100, 101, 102]
+  interval: 'monthly'
 }
