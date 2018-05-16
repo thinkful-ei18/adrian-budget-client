@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./Input";
 import { required, nonEmpty, matches, length, isTrimmed } from "../utils/validators";
+import { register } from '../actions/user-actions';
 
 const passwordLength = length({ min: 12, max: 72 });
 const matchesPassword = matches("password");
