@@ -10,6 +10,7 @@ const matchesPassword = matches("password");
 export class RegistrationForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
+    this.props.dispatch(register(values));
     this.props.reset();
   }
 
