@@ -1,6 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
-import { normalizeResponseErrors } from '../utils/noramlize-errors';
+import { normalizeResponseErrors } from '../utils/normalize-errors';
 import { saveAuthToken, clearAuthToken, saveUserCredentials } from '../local-storage';
 import jwtDecode from 'jwt-decode'; 
 
