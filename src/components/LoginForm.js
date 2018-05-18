@@ -13,7 +13,7 @@ export class LoginForm extends Component {
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit, error } = this.props;
+    const  { pristine, submitting, handleSubmit, error, loggedIn } = this.props;
     let errorMessage;
 
 		if (error) {
@@ -24,7 +24,7 @@ export class LoginForm extends Component {
 			);
     }
 
-    if (this.props.loggedIn) {
+    if (loggedIn) {
       return <Redirect to='/dashboard'/>;
     }
 
