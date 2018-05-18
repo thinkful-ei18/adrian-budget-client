@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
-import logout from '../actions/user-actions';
+import { logout } from '../actions/user-actions';
 
 export class Navbar extends Component {
   render() {
+    const { loggedIn, dispatch } = this.props;
+
     let menu;
 
     if (this.props.loggedIn) {
@@ -13,7 +16,8 @@ export class Navbar extends Component {
           <nav>
             <h1>Windfall</h1>
             <ul>
-              <li>Logout</li>
+              <li>
+                <button onClick={() => dispatch(logout())}>Logout</button></li>
             </ul>
           </nav>
     } else {
@@ -21,8 +25,12 @@ export class Navbar extends Component {
         <nav>
           <h1>Windfall</h1>
           <ul>
-            <li>Sign up</li>
-            <li>Log in</li>
+            <li>
+              <Link to='/register'>Sign up</Link>
+            </li>
+            <li>
+              <Link to='/login'>Log in</Link>
+            </li>
           </ul>
         </nav>
     }
