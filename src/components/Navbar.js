@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import './Navbar.css';
+import logout from '../actions/user-actions';
 
-export default class Navbar extends Component {
+export class Navbar extends Component {
   render() {
-    return(
-    <div>
-      <header>
+    let menu;
+
+    if (this.props.loggedIn) {
+      console.log('yay!');
+      menu =
+          <nav>
+            <h1>Windfall</h1>
+            <ul>
+              <li>Logout</li>
+            </ul>
+          </nav>
+    } else {
+      menu =
         <nav>
           <h1>Windfall</h1>
           <ul>
@@ -13,8 +25,20 @@ export default class Navbar extends Component {
             <li>Log in</li>
           </ul>
         </nav>
+    }
+
+    return(
+    <div>
+      <header>
+        {menu}
       </header>
     </div>
     );
   }
 }
+
+export const mapStateToProps = (state, props) => ({
+  loggedIn: state.currentUser.info !== null
+});
+
+export default connect(mapStateToProps)(Navbar);
