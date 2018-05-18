@@ -9,11 +9,20 @@ import { login } from '../actions/user-actions';
 export class LoginForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
-    this.props.dispatch(login(values.username, values.password));
+    return this.props.dispatch(login(values.username, values.password));
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit } = this.props;
+    const  { pristine, submitting, handleSubmit, error } = this.props;
+
+    let errorMessage;
+		if (error) {
+			errorMessage = (
+				<div className="form-error" aria-live="polite">
+					{error}
+				</div>
+			);
+		}
 
     return(
       <div>
@@ -44,6 +53,7 @@ export class LoginForm extends Component {
             >
               Log in
             </button>
+            <br/>{errorMessage}
           </form>
         </main>
       </div>
