@@ -67,7 +67,7 @@ export class BillForm extends Component {
           name='food'
         />
         <Field
-          label='Health & Medical'
+          label='Entertainment'
           component={Input}
           type='checkbox'
           name='entertainment'
@@ -77,6 +77,12 @@ export class BillForm extends Component {
           component={Input}
           type='checkbox'
           name='transportation'
+        />
+        <Field
+          label='Other'
+          component={Input}
+          type='checkbox'
+          name='other'
         />
         </label>
         <button
