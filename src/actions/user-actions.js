@@ -31,10 +31,10 @@ export const register = user => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    /* .then(() => {
+    .then(() => {
       dispatch(registerSuccess());
       dispatch(login(user.username, user.password))
-  }) */
+  })
     .catch(err => {
       const { reason, message } = err;
       dispatch(registerError(err));
