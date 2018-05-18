@@ -1,0 +1,16 @@
+.billFormIdentifier {
+  visibility: hidden;
+  overflow-y: hidden;
+  max-height: 0;
+  transition: max-height .3s linear,
+    overflow-y .75s linear,
+    visibility .75s linear;
+}
+
+
+.billFormIdentifier[aria-hidden=false] {
+  visibility: visible;
+  overflow-y: default;
+  max-height: 1000px;
+  transition: all .75s linear;
+}
