@@ -146,5 +146,5 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 
 export const logout = () => (dispatch) => {
   dispatch(clearToken());
-  clearAuthToken(authToken);
+  clearAuthToken();
 }
