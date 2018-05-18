@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import List from './List';
 import User from './User';
 
-export default class Dashboard extends Component {
+export class Dashboard extends Component {
   render() {
+    const { loggedIn } = this.props;
+
+    if (!loggedIn) {
+      return <Redirect to='/'/>;
+    }
+
     return (
       <div>
         <main>
@@ -19,3 +27,9 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+export const mapStateToProps = (state, props) => ({
+  loggedIn: state.currentUser.info !== null
+});
+
+export default connect(mapStateToProps)(Dashboard);
