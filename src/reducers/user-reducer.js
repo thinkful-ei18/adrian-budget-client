@@ -18,6 +18,15 @@ export const userReducer = (state=initialState, action) => {
     case REGISTER_SUCCESS:
     return Object.assign({}, state, {loading: false});
 
+    case LOGIN_REQUEST:
+    return Object.assign({}, state, {loading: true});
+
+    case LOGIN_ERROR:
+    return Object.assign({}, state, {loading: false, error: action.error});
+
+    case LOGIN_SUCCESS:
+    return Object.assign({}, state, {loading: false, info: action.info});
+
     default:
       return state;
   }
