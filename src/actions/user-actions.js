@@ -81,8 +81,7 @@ export const login = (username, password) => dispatch => {
     })
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
-      // .then(({ authToken }) => storeAuthToken(authToken, dispatch))
-      .then((res) => dispatch(loginSuccess(res)))
+      .then(({ authToken }) => storeAuthToken(authToken, dispatch))
       .catch(err => {
         const { status } = err.error;
         const message =
