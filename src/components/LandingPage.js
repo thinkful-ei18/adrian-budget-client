@@ -7,7 +7,7 @@ export default class LandingPage extends Component {
       <div>
         <header>
           <h1>No budget required</h1>
-          <p>Just keep track of your bills and when they've been paid</p>
+          <p>Windfall helps you see how much money's left over after paying your bills.</p>
           <button>Get started</button>
         </header>
         <main>
