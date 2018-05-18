@@ -66,7 +66,7 @@ export const login = (username, password) => dispatch => {
       // errors which follow a consistent format
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
-      .then(({ authToken }) => storeAuthToken(authToken, dispatch))
+      // .then(({ authToken }) => storeAuthToken(authToken, dispatch))
       .then(() => dispatch(loginSuccess()))
       .catch(err => {
         const { status } = err.error;
@@ -85,13 +85,13 @@ export const login = (username, password) => dispatch => {
 };
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
-export const setAuthToken = authToken => ({
+export const setToken = authToken => ({
   type: SET_AUTH_TOKEN,
   authToken,
 });
 
 export const CLEAR_AUTH_TOKEN = 'CLEAR_AUTH_TOKEN';
-export const clearAuthToken = () => ({
+export const clearToken = () => ({
   type: CLEAR_AUTH_TOKEN
 });
 
@@ -118,7 +118,7 @@ export const loginSuccess = info => ({
 const storeAuthToken = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   console.log(decodedToken);
-  dispatch(setAuthToken(authToken));
+  dispatch(setToken(authToken));
   dispatch(loginSuccess(decodedToken.user));
   saveAuthToken(authToken);
   saveUserCredentials(decodedToken.user);
@@ -143,7 +143,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
       // are invalid or expired, or something else went wrong, so clear
       // them and sign us out
       dispatch(loginError(err));
-      dispatch(clearAuth());
+      dispatch(clearToken());
       clearAuthToken(authToken);
     });
 };

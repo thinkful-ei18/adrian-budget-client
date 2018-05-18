@@ -4,10 +4,12 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Input from "./Input";
 import { required, nonEmpty } from "../utils/validators";
+import { login } from '../actions/user-actions';
 
 export class LoginForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
+    // this.props.dispatch(login(values));
   }
 
   render() {
