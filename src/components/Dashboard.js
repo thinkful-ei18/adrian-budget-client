@@ -6,7 +6,7 @@ import User from './User';
 
 export class Dashboard extends Component {
   render() {
-    const { loggedIn } = this.props;
+    const { loggedIn, user } = this.props;
 
     if (!loggedIn) {
       return <Redirect to='/'/>;
@@ -15,7 +15,7 @@ export class Dashboard extends Component {
     return (
       <div>
         <main>
-          <User/>
+          <User firstname={user.firstname} grossincome={user.income}/>
           <ul>
             <li>New Bill</li>
             <li>Change Income</li>
@@ -29,7 +29,8 @@ export class Dashboard extends Component {
 }
 
 export const mapStateToProps = (state, props) => ({
-  loggedIn: state.currentUser.info !== null
+  loggedIn: state.currentUser.info !== null,
+  user: state.currentUser.info
 });
 
 export default connect(mapStateToProps)(Dashboard);
