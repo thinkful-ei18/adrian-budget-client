@@ -10,7 +10,7 @@ export class Navbar extends Component {
 
     let menu;
 
-    if (this.props.loggedIn) {
+    if (loggedIn) {
       console.log('yay!');
       menu =
           <nav>
