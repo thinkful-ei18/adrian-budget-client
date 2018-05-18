@@ -9,7 +9,7 @@ import { login } from '../actions/user-actions';
 export class LoginForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
-    this.props.dispatch(login(values));
+    this.props.dispatch(login(values.username, values.password));
   }
 
   render() {
