@@ -14,8 +14,8 @@ export class LoginForm extends Component {
 
   render() {
     const  { pristine, submitting, handleSubmit, error } = this.props;
-
     let errorMessage;
+
 		if (error) {
 			errorMessage = (
 				<div className="form-error" aria-live="polite">
