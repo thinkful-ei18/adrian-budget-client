@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RegistrationForm from '../components/RegistrationForm';
 import './LandingPage.css';
 
 export default class LandingPage extends Component {
@@ -8,7 +9,9 @@ export default class LandingPage extends Component {
         <header>
           <h1>No budget required</h1>
           <p>Windfall helps you see how much money's left over after paying your bills.</p>
-          <button>Get started</button>
+          <div>
+            <RegistrationForm/>
+          </div>
         </header>
         <main>
           <div>
