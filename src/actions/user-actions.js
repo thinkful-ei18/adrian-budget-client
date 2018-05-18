@@ -21,6 +21,7 @@ export const registerSuccess = () => ({
 });
 
 export const register = user => dispatch => {
+  dispatch(registerRequest());
   return fetch(`${API_BASE_URL}/users`, {
     method: 'POST',
     headers: {
@@ -30,9 +31,13 @@ export const register = user => dispatch => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    // .then(() => dispatch(login(user.username, user.password)))
+    /* .then(() => {
+      dispatch(registerSuccess());
+      dispatch(login(user.username, user.password))
+  }) */
     .catch(err => {
       const { reason, message } = err;
+      dispatch(registerError(err));
 
       if (reason === 'ValidationError') {
         return Promise.reject(
@@ -45,7 +50,7 @@ export const register = user => dispatch => {
 };
 
 export const login = (username, password) => dispatch => {
-  dispatch(authRequest());
+  dispatch(loginRequest());
   return (
     fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
@@ -62,10 +67,13 @@ export const login = (username, password) => dispatch => {
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
       .then(({ authToken }) => storeAuthToken(authToken, dispatch))
+      .then(() => dispatch(loginSuccess()))
       .catch(err => {
         const { status } = err.error;
         const message =
-          status === 422 ? err.message : 'Unable to login, please try again';
+        status === 422 ? err.message : 'Unable to login, please try again';
+
+        dispatch(loginError(err));
 
         return Promise.reject(
           new SubmissionError({
@@ -76,49 +84,48 @@ export const login = (username, password) => dispatch => {
   );
 };
 
-/* AUTH TOKEN ACTIONS NECESSARY FOR USERS TO LOGIN */
-
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
   authToken,
 });
 
-export const CLEAR_AUTH = 'CLEAR_AUTH';
-export const clearAuth = () => ({
-  type: CLEAR_AUTH,
+export const CLEAR_AUTH_TOKEN = 'CLEAR_AUTH_TOKEN';
+export const clearAuthToken = () => ({
+  type: CLEAR_AUTH_TOKEN
 });
 
-export const AUTH_REQUEST = 'AUTH_REQUEST';
-export const authRequest = () => ({
-  type: AUTH_REQUEST,
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const loginRequest = () => ({
+  type: LOGIN_REQUEST
 });
 
-export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSuccess = currentUser => ({
-  type: AUTH_SUCCESS,
-  currentUser,
-});
-
-export const AUTH_ERROR = 'AUTH_ERROR';
-export const authError = error => ({
-  type: AUTH_ERROR,
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const loginError = error => ({
+  type: LOGIN_ERROR,
   error,
 });
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const loginSuccess = info => ({
+  type: LOGIN_SUCCESS,
+  info
+});
+
 
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthToken = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
-  console.log(decodedToken)
+  console.log(decodedToken);
   dispatch(setAuthToken(authToken));
-  dispatch(authSuccess(decodedToken.user));
+  dispatch(loginSuccess(decodedToken.user));
   saveAuthToken(authToken);
   saveUserCredentials(decodedToken.user);
 };
 
 export const refreshAuthToken = () => (dispatch, getState) => {
-  dispatch(authRequest());
+  dispatch(loginRequest());
   const authToken = getState().user.authToken;
   return fetch(`${API_BASE_URL}/auth/refresh`, {
     method: 'POST',
@@ -130,11 +137,12 @@ export const refreshAuthToken = () => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(({ authToken }) => storeAuthToken(authToken, dispatch))
+    .then(() => dispatch(loginSuccess()))
     .catch(err => {
       // We couldn't get a refresh token because our current credentials
       // are invalid or expired, or something else went wrong, so clear
       // them and sign us out
-      dispatch(authError(err));
+      dispatch(loginError(err));
       dispatch(clearAuth());
       clearAuthToken(authToken);
     });
