@@ -53,7 +53,7 @@ export class LoginForm extends Component {
             >
               Log in
             </button>
-            <br/>{errorMessage}
+            {errorMessage}
           </form>
         </main>
       </div>
