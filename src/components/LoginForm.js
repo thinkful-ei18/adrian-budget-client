@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import { Field, reduxForm, focus } from "redux-form";
-import { withRouter } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Input from "./Input";
 import { required, nonEmpty } from "../utils/validators";
@@ -22,7 +22,11 @@ export class LoginForm extends Component {
 					{error}
 				</div>
 			);
-		}
+    }
+
+    if (this.props.loggedIn) {
+      return <Redirect to='/dashboard'/>;
+    }
 
     return(
       <div>
@@ -59,10 +63,12 @@ export class LoginForm extends Component {
       </div>
     );
   }
-
 }
 
+export const mapStateToProps = (state, props) => ({
+	loggedIn: state.currentUser.info !== null,
+});
+
 export default reduxForm({
-	form: "login",
-	onSubmitFail: (errors, dispatch) => dispatch(focus("login", "username"))
-})(withRouter(connect()(LoginForm)))
+	form: 'login',
+})(connect(mapStateToProps)(LoginForm));
