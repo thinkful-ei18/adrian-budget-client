@@ -12,16 +12,16 @@ export default class LandingPage extends Component {
         </header>
         <main>
           <div>
-            <h2>See your bills in one place</h2>
+            <h2>Create a list of bills</h2>
             <p>View them at your computer or on your phone</p>
           </div>
           <div>
-            <h2>Skip the budget</h2>
-            <p>Check off bills as you pay them</p>
+            <h2>Mark off paid bills</h2>
+            <p>Easily keep track of bills you've paid so far</p>
           </div>
           <div>
             <h2>Track your windfall</h2>
-            <p>Know what's left over (and what isn't!)</p>
+            <p>Always know what's left over after paying your bills</p>
           </div>
         </main>
       </div>
