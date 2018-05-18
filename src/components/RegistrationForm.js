@@ -10,11 +10,20 @@ const matchesPassword = matches("password");
 export class RegistrationForm extends Component {
   handleFormSubmit(values) {
     console.log(values);
-    this.props.dispatch(register(values));
+    return this.props.dispatch(register(values));
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit } = this.props;
+    const  { pristine, submitting, handleSubmit, error } = this.props;
+    let errorMessage;
+
+    if (error) {
+			errorMessage = (
+				<div className="form-error" aria-live="polite">
+					{error}
+				</div>
+			);
+		}
 
     return (
       <div>
@@ -61,6 +70,7 @@ export class RegistrationForm extends Component {
             >
 					    Sign Up
 				    </button>
+            {errorMessage}
           </form>
         </main>
       </div>
