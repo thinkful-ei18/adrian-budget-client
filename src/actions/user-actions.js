@@ -49,6 +49,23 @@ export const register = user => dispatch => {
     });
 };
 
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const loginRequest = () => ({
+  type: LOGIN_REQUEST
+});
+
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const loginError = error => ({
+  type: LOGIN_ERROR,
+  error,
+});
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const loginSuccess = info => ({
+  type: LOGIN_SUCCESS,
+  info
+});
+
 export const login = (username, password) => dispatch => {
   dispatch(loginRequest());
   return (
@@ -94,24 +111,6 @@ export const CLEAR_AUTH_TOKEN = 'CLEAR_AUTH_TOKEN';
 export const clearToken = () => ({
   type: CLEAR_AUTH_TOKEN
 });
-
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const loginRequest = () => ({
-  type: LOGIN_REQUEST
-});
-
-export const LOGIN_ERROR = 'LOGIN_ERROR';
-export const loginError = error => ({
-  type: LOGIN_ERROR,
-  error,
-});
-
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const loginSuccess = info => ({
-  type: LOGIN_SUCCESS,
-  info
-});
-
 
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
