@@ -69,7 +69,7 @@ export const loginSuccess = info => ({
 export const login = (username, password) => dispatch => {
   dispatch(loginRequest());
   return (
-    fetch(`${API_BASE_URL}/auth/login`, {
+    fetch(`${API_BASE_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export const login = (username, password) => dispatch => {
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
       // .then(({ authToken }) => storeAuthToken(authToken, dispatch))
-      .then(() => dispatch(loginSuccess()))
+      .then((res) => dispatch(loginSuccess(res)))
       .catch(err => {
         const { status } = err.error;
         const message =
