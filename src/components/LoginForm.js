@@ -24,7 +24,7 @@ export class LoginForm extends Component {
 			);
     }
 
-    if (loggedIn) {
+    if (localStorage.getItem('authToken')) {
       return <Redirect to='/dashboard'/>;
     }
 
