@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Bill } from './Bill';
+import { fetchBills } from '../actions/bills-actions';
 
 export class List extends Component {
+  componentDidMount() {
+    console.log('mounted!');
+    if (this.props.hasAuthToken) {
+      console.log('user has token:',this.props.hasAuthToken);
+      this.props.dispatch(fetchBills());
+    }
+  }
+
   render() {
 
     const bills = [
@@ -28,7 +37,7 @@ export class List extends Component {
 };
 
 export const mapStateToProps = (state, props) => ({
-  loggedIn: state.currentUser.info !== null,
+  hasAuthToken: state.currentUser.authToken !== null,
   bills: state.bills.list
 });
 
