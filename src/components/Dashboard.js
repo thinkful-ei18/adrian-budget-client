@@ -83,7 +83,7 @@ export class Dashboard extends Component {
 
 export const mapStateToProps = (state, props) => ({
   loggedIn: state.currentUser.info !== null,
-  user: state.currentUser.info
+  user: state.currentUser.info ? state.currentUser.info : ''
 });
 
 export default connect(mapStateToProps)(Dashboard);
