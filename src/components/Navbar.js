@@ -25,7 +25,7 @@ export class Navbar extends Component {
   }
 
   render() {
-    const { loggedIn, dispatch, user } = this.props;
+    const { loggedIn, user } = this.props;
     const navbarIdentifier = `navbar-${user.id}`;
 
     let menu;
