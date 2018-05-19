@@ -1,5 +1,5 @@
+import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from '../utils/normalize-errors';
-import { loadAuthToken } from '../local-storage';
 
 export const FETCH_BILLS_REQUEST = 'FETCH_BILLS_REQUEST';
 export const fetchBillsRequest = () => ({
@@ -17,18 +17,24 @@ export const addBillRequest = list => ({
   list
 });
 
-export const fetchBills = () => dispatch => {
-  const authToken = localStorage.getItem('authToken');
+export const fetchBills = () => (dispatch, getState) => {
+  // const authToken = localStorage.getItem('authToken') ? localStorage.getItem('authToken') : getState().currentUser.authToken;
+  // console.log('fetching bills using token:', authToken);
 
-  return (
-    fetch(`${API_BASE_URL}/bills`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${authToken}`
-      },
-    })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => console.log('response:', res))
-  );
+  let authToken;
+  const getToken = new Promise(function(resolve, reject) {
+      localStorage.getItem('authToken') ? resolve(authToken = localStorage.getItem('authToken')) : reject('Could not find authToken!') ;
+    });
+
+  getToken
+    .then(() => fetch(`${API_BASE_URL}/bills`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    }
+  }))
+  .then(res => normalizeResponseErrors(res))
+  .then(res => console.log('response:', res))
+  .catch(err => dispatch(fetchBillsError(err)));
 };
