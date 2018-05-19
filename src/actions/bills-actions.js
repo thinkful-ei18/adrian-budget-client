@@ -18,10 +18,8 @@ export const addBillRequest = list => ({
 });
 
 export const fetchBills = () => (dispatch, getState) => {
-  // const authToken = localStorage.getItem('authToken') ? localStorage.getItem('authToken') : getState().currentUser.authToken;
-  // console.log('fetching bills using token:', authToken);
-
   let authToken;
+
   const getToken = new Promise(function(resolve, reject) {
       localStorage.getItem('authToken') ? resolve(authToken = localStorage.getItem('authToken')) : reject('Could not find authToken!') ;
     });
