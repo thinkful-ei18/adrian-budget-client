@@ -18,7 +18,7 @@ export class BillForm extends Component {
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit, editButton } = this.props;
+    const  { pristine, submitting, handleSubmit, cancelButton } = this.props;
 
     return (
       <div>
@@ -86,7 +86,7 @@ export class BillForm extends Component {
         />
         </label>
         <button
-          onClick={editButton}
+          onClick={cancelButton}
         >
           Cancel
         </button>
