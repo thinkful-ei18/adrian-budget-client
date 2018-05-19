@@ -114,7 +114,7 @@ export const clearToken = () => ({
 const storeAuthToken = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   console.log(decodedToken);
-  dispatch(setToken(authToken));
+  // dispatch(setToken(authToken)); // I'm storing the token in localstorage only.
   dispatch(loginSuccess(decodedToken.user));
   saveAuthToken(authToken);
   saveUserCredentials(decodedToken.user);
