@@ -9,7 +9,7 @@ import './Dashboard.css';
 export class Dashboard extends Component {
 
   toggleBillForm() {
-    this.setState({editingBillForm: !this.state.editingBillForm});
+    this.setState({showBillForm: !this.state.editingBillForm, editingBillForm: !this.state.editingBillForm});
   }
 
   constructor(props) {
@@ -18,20 +18,27 @@ export class Dashboard extends Component {
     this.state = {
       showBillForm: false,
       editingBillForm: false,
-      showIncomeForm: false
+      showIncomeForm: false,
+      editingIncomeForm: false
     }
 
     this.toggleBillForm = this.toggleBillForm.bind(this);
   }
 
   render() {
-    const { id, loggedIn, user } = this.props;
+    const { loggedIn, user } = this.props;
     let billForm;
     let incomeForm;
-    const billFormIdentifier = `billForm-${id}`;
+    const billFormIdentifier = `billForm-${user.id}`;
 
     if (!loggedIn) {
       return <Redirect to='/'/>;
+    }
+
+    if (this.state.editingBillForm) {
+      billForm = <BillForm editButton={this.toggleBillForm}/>
+    } else {
+      billForm = '';
     }
 
     if (this.state.editingBillForm) {
@@ -47,6 +54,7 @@ export class Dashboard extends Component {
           <ul>
             <li>
               <button
+                id={billFormIdentifier}
                 className='billform-toggle-btn'
                 aria-expanded={this.state.showBillForm}
                 aria-controls={billFormIdentifier}
@@ -64,6 +72,7 @@ export class Dashboard extends Component {
             aria-hidden={!this.state.showBillForm}
           >
             {billForm}
+            {incomeForm}
           </div>
           <List/>
         </main>
