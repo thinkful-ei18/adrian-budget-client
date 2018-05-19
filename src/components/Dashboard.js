@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import BillForm from '../components/BillForm';
+import IncomeForm from '../components/IncomeForm';
 import List from './List';
 import User from './User';
 import './Dashboard.css';
@@ -10,6 +11,10 @@ export class Dashboard extends Component {
 
   toggleBillForm() {
     this.setState({showBillForm: !this.state.editingBillForm, editingBillForm: !this.state.editingBillForm});
+  }
+
+  toggleIncomeForm() {
+    this.setState({showIncomeForm: !this.state.showIncomeForm, editingIncomeForm: !this.state.editingIncomeForm});
   }
 
   constructor(props) {
@@ -23,13 +28,16 @@ export class Dashboard extends Component {
     }
 
     this.toggleBillForm = this.toggleBillForm.bind(this);
+    this.toggleIncomeForm = this.toggleIncomeForm.bind(this);
   }
 
   render() {
     const { loggedIn, user } = this.props;
     let billForm;
     let incomeForm;
+
     const billFormIdentifier = `billForm-${user.id}`;
+    const incomeFormIdentifier = `billForm-${user.id}`;
 
     if (!loggedIn) {
       return <Redirect to='/'/>;
@@ -41,10 +49,10 @@ export class Dashboard extends Component {
       billForm = '';
     }
 
-    if (this.state.editingBillForm) {
-      billForm = <BillForm editButton={this.toggleBillForm}/>
+    if (this.state.editingIncomeForm) {
+      incomeForm = <IncomeForm cancelButton={this.toggleIncomeForm}/>
     } else {
-      billForm = '';
+      incomeForm = '';
     }
 
     return (
@@ -63,8 +71,17 @@ export class Dashboard extends Component {
                 New Bill
               </button>
               </li>
-            <li>Change Income</li>
-            <li>Logout</li>
+            <li>
+              <button
+                id={incomeFormIdentifier}
+                className='incomeform-toggle-btn'
+                aria-expanded={this.state.showIncomeForm}
+                aria-controls={incomeFormIdentifier}
+                onClick={this.toggleIncomeForm}
+              >
+                Change Income
+              </button>
+            </li>
           </ul>
           <div
             id={billFormIdentifier}
@@ -72,6 +89,12 @@ export class Dashboard extends Component {
             aria-hidden={!this.state.showBillForm}
           >
             {billForm}
+          </div>
+          <div
+            id={incomeFormIdentifier}
+            className='income-form-collapsible'
+            aria-hidden={!this.state.showIncomeForm}
+          >
             {incomeForm}
           </div>
           <List/>
