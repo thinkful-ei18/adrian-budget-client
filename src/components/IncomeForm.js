@@ -8,7 +8,7 @@ export class IncomeForm extends Component {
   }
 
   render() {
-    const { handleSubmit, pristine, submitting } = this.props;
+    const { handleSubmit, pristine, submitting, cancelButton } = this.props;
 
     return (
       <div>
@@ -22,7 +22,7 @@ export class IncomeForm extends Component {
               name="income"
             />
             <button
-              onClick={() => console.log('going back to dashboard...')}
+              onClick={cancelButton}
             >
               Cancel
             </button>
