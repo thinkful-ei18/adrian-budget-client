@@ -21,3 +21,5 @@ export const billsReducer = (state=initialState, action) => {
       return state;
   }
 }
+
+export default billsReducer;
