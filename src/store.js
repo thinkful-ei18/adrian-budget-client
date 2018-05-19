@@ -3,13 +3,15 @@ import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import userReducer from './reducers/user-reducer';
+import billsReducer from './reducers/bills-reducer';
 import { loadAuthToken } from './local-storage';
 import { loginSuccess, setToken } from './actions/user-actions';
 
 const store = createStore(
   combineReducers({
     form: formReducer,
-    currentUser: userReducer
+    currentUser: userReducer,
+    bills: billsReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );
