@@ -82,10 +82,6 @@ export class Navbar extends Component {
   }
 }
 
-Navbar.defaultProps = {
-  user: '',
-};
-
 export const mapStateToProps = (state, props) => ({
   loggedIn: state.currentUser.info !== null,
   user: state.currentUser.info ? state.currentUser.info : ''
