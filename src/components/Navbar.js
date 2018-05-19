@@ -31,7 +31,7 @@ export class Navbar extends Component {
     let menu;
 
     if (loggedIn) {
-      console.log('yay!');
+
       menu =
           <nav
             aria-expanded={this.state.showMenu}
