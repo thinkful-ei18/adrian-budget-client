@@ -2,6 +2,7 @@ import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
 import { normalizeResponseErrors } from '../utils/normalize-errors';
 import { saveAuthToken, clearAuthToken, saveUserCredentials } from '../local-storage';
+import { clearBills } from './bills-actions';
 import jwtDecode from 'jwt-decode';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
@@ -144,6 +145,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 };
 
 export const logout = () => (dispatch) => {
+  dispatch(clearBills());
   dispatch(clearToken());
   clearAuthToken();
 }
