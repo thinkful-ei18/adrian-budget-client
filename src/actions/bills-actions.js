@@ -51,8 +51,9 @@ export const createBillError = error => ({
 });
 
 export const CREATE_BILL_SUCCESS = 'CREATE_BILL_SUCCESS';
-export const createBillSuccess = () => ({
+export const createBillSuccess = bill => ({
   type: CREATE_BILL_SUCCESS,
+  bill
 });
 
 export const createBill = bill => (dispatch, getState) => {
@@ -69,7 +70,7 @@ export const createBill = bill => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(res => console.log(res))
+  .then(bill => dispatch(createBillSuccess(bill)))
   .catch(err => dispatch(createBillError(err)));
 };
 
