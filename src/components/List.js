@@ -5,9 +5,7 @@ import { fetchBills } from '../actions/bills-actions';
 
 export class List extends Component {
   componentDidMount() {
-    console.log('mounted!');
     if (this.props.hasAuthToken) {
-      console.log('user has token:',this.props.hasAuthToken);
       this.props.dispatch(fetchBills());
     }
   }
