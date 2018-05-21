@@ -55,6 +55,17 @@ export const createBillSuccess = () => ({
   type: CREATE_BILL_SUCCESS,
 });
 
-export const createBill = () => (dispatch, getState) => ({
-
-});
+export const createBill = bill => (dispatch, getState) => {
+  dispatch(createBillRequest());
+  return fetch(`${API_BASE_URL}/bills`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => dispatch(createBillError(err)));
+};
