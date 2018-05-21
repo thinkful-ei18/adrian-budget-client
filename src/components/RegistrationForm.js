@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import { Field, reduxForm, focus } from "redux-form";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import Input from "./Input";
 import { required, nonEmpty, matches, length, isTrimmed } from "../utils/validators";
 import { register } from '../actions/user-actions';
@@ -9,13 +11,16 @@ const matchesPassword = matches("password");
 
 export class RegistrationForm extends Component {
   handleFormSubmit(values) {
-    console.log(values);
-    return this.props.dispatch(register(values));
+    this.props.dispatch(register(values));
   }
 
   render() {
     const  { pristine, submitting, handleSubmit, error } = this.props;
     let errorMessage;
+
+    if (this.props.loggedIn) {
+      return <Redirect to='/login'/>;
+    }
 
     if (error) {
 			errorMessage = (
@@ -42,7 +47,8 @@ export class RegistrationForm extends Component {
               component={Input}
               type="number"
               name="income"
-              placeholder="2000"/>
+              placeholder="2000"
+              parse={value => Number(value)}/>
             <Field component={Input}
               label="Username"
               type="text"
@@ -78,7 +84,11 @@ export class RegistrationForm extends Component {
   }
 }
 
+export const mapStateToProps = (state, props) => ({
+	loggedIn: state.currentUser.info !== null,
+});
+
 export default reduxForm({
 	form: "registration",
 	onSubmitFail: (errors, dispatch) => dispatch(focus("registration", Object.keys(errors)[0]))
-})(RegistrationForm)
+})(connect(mapStateToProps)(RegistrationForm));
