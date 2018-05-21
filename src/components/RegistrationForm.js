@@ -6,7 +6,6 @@ import Input from "./Input";
 import { required, nonEmpty, matches, length, isTrimmed } from "../utils/validators";
 import { register } from '../actions/user-actions';
 
-const incomeLength = length({ min: 1, max: 4 })
 const passwordLength = length({ min: 12, max: 72 });
 const matchesPassword = matches("password");
 
@@ -50,7 +49,7 @@ export class RegistrationForm extends Component {
               name="income"
               placeholder="2000"
               parse={value => Number(value)}
-              validate={[required, incomeLength]}
+              validate={[required]}
               />
             <Field component={Input}
               label="Username"
