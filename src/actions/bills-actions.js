@@ -56,13 +56,16 @@ export const createBillSuccess = () => ({
 });
 
 export const createBill = bill => (dispatch, getState) => {
+  const authToken = localStorage.getItem('authToken');
+
   dispatch(createBillRequest());
   return fetch(`${API_BASE_URL}/bills`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${authToken}`
-    }
+    },
+    body: JSON.stringify(bill)
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
