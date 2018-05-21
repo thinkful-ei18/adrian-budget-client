@@ -8,7 +8,7 @@ import { login } from '../actions/user-actions';
 
 export class LoginForm extends Component {
   handleFormSubmit(values) {
-    this.props.dispatch(login(values.username, values.password));
+    return this.props.dispatch(login(values.username, values.password));
   }
 
   render() {
