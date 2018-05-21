@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, focus } from "redux-form";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Input from "./Input";
