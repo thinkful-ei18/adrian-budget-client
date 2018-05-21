@@ -1,4 +1,4 @@
-import { FETCH_BILLS_REQUEST, FETCH_BILLS_SUCCESS, FETCH_BILLS_ERROR, CREATE_BILL_REQUEST, CREATE_BILL_ERROR, CREATE_BILL_SUCCESS} from '../actions/bills-actions';
+import { FETCH_BILLS_REQUEST, FETCH_BILLS_SUCCESS, FETCH_BILLS_ERROR, CREATE_BILL_REQUEST, CREATE_BILL_ERROR, CREATE_BILL_SUCCESS, CLEAR_BILLS} from '../actions/bills-actions';
 
 const initialState = {
   list: null,
@@ -25,6 +25,9 @@ export const billsReducer = (state=initialState, action) => {
 
     case CREATE_BILL_SUCCESS:
     return Object.assign({}, state, {loading: false});
+
+    case CLEAR_BILLS:
+    return Object.assign({}, state, {list: null, loading: false, error: null});
 
     default:
       return state;
