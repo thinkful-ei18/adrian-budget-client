@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./Input";
+import { createBill } from '../actions/bills-actions';
 
 export class BillForm extends Component {
   handleFormSubmit(values) {
-    console.log(values);
+    this.props.dispatch(createBill(values));
   }
 
   componentWillMount() {
