@@ -24,7 +24,7 @@ export const billsReducer = (state=initialState, action) => {
     return Object.assign({}, state, {loading: false, error: action.error});
 
     case CREATE_BILL_SUCCESS:
-    return Object.assign({}, state, {loading: false});
+    return {...state, list: [...state.list, action.bill]};
 
     case CLEAR_BILLS:
     return Object.assign({}, state, {list: null, loading: false, error: null});
