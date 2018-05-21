@@ -72,3 +72,8 @@ export const createBill = bill => (dispatch, getState) => {
   .then(res => console.log(res))
   .catch(err => dispatch(createBillError(err)));
 };
+
+export const CLEAR_BILLS = 'CLEAR_BILLS';
+export const clearBills = () => ({
+  type: CLEAR_BILLS
+});
