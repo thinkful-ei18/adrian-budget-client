@@ -1,6 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import BillForm from './BillForm';
 import './Bill.css';
+import { connect } from 'react-redux';
+import { deleteBill } from '../actions/bills-actions';
 
 export class Bill extends Component {
   constructor(props) {
@@ -31,6 +33,7 @@ export class Bill extends Component {
 
   deleteBill(id) {
     console.log(`Deleting bill ${id}`);
+    this.props.dispatch(deleteBill(id));
   }
 
 render() {
@@ -106,3 +109,5 @@ Bill.defaultProps = {
   beenpaid: false,
   interval: 'monthly'
 }
+
+export default connect()(Bill);
