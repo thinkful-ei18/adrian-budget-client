@@ -85,13 +85,15 @@ export const deleteBillRequest = () => ({
 });
 
 export const DELETE_BILL_ERROR = 'DELETE_BILL_ERROR';
-export const deleteBillError = () => ({
+export const deleteBillError = error => ({
   type: DELETE_BILL_ERROR,
+  error
 });
 
 export const DELETE_BILL_SUCCESS = 'DELETE_BILL_SUCCESS';
-export const deleteBillSuccess = () => ({
+export const deleteBillSuccess = id => ({
   type: DELETE_BILL_SUCCESS,
+  id
 });
 
 export const deleteBill = id => (dispatch, getState) => {
@@ -107,6 +109,6 @@ export const deleteBill = id => (dispatch, getState) => {
     })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(() => dispatch(deleteBillSuccess()))
+    .then(() => dispatch(deleteBillSuccess(id)))
     .catch(err => dispatch(deleteBillError(err)));
 };
