@@ -78,3 +78,18 @@ export const CLEAR_BILLS = 'CLEAR_BILLS';
 export const clearBills = () => ({
   type: CLEAR_BILLS
 });
+
+export const DELETE_BILL_REQUEST = 'DELETE_BILL_REQUEST';
+export const deleteBillRequest = () => ({
+  type: DELETE_BILL_REQUEST,
+});
+
+export const DELETE_BILL_ERROR = 'DELETE_BILL_ERROR';
+export const deleteBillError = () => ({
+  type: DELETE_BILL_ERROR,
+});
+
+export const DELETE_BILL_SUCCESS = 'DELETE_BILL_SUCCESS';
+export const deleteBillSuccess = () => ({
+  type: DELETE_BILL_SUCCESS,
+});
