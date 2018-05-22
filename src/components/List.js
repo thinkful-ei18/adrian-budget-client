@@ -4,8 +4,11 @@ import { Bill } from './Bill';
 import { fetchBills } from '../actions/bills-actions';
 
 export class List extends Component {
+
   componentDidMount() {
-    if (this.props.hasAuthToken) {
+    const authToken = localStorage.getItem('authToken');
+
+    if (authToken) {
       this.props.dispatch(fetchBills());
     }
   }
