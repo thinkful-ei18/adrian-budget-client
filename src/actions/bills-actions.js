@@ -100,16 +100,20 @@ export const deleteBill = id => (dispatch, getState) => {
   const authToken = localStorage.getItem('authToken');
 
     dispatch(deleteBillRequest());
-    return dispatch(deleteBillSuccess(id));
-    // fetch(`${API_BASE_URL}/bills/${id}`, {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${authToken}`
-    //   }
-    // })
-    // .then(res => normalizeResponseErrors(res))
-    // .then(res => res.json())
-    // .then(() => dispatch(deleteBillSuccess(id)))
-    // .catch(err => dispatch(deleteBillError(err)));
+    return fetch(`${API_BASE_URL}/bills/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      if (!res.ok) {
+        return dispatch(deleteBillError(res));
+      } else {
+        return dispatch(deleteBillSuccess(id));
+      }
+    })
+    .catch(err => dispatch(deleteBillError(err)));
 };
