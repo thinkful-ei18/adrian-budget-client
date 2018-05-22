@@ -1,4 +1,4 @@
-import { FETCH_BILLS_REQUEST, FETCH_BILLS_SUCCESS, FETCH_BILLS_ERROR, CREATE_BILL_REQUEST, CREATE_BILL_ERROR, CREATE_BILL_SUCCESS, CLEAR_BILLS, DELETE_BILL_REQUEST, DELETE_BILL_ERROR, DELETE_BILL_SUCCESS} from '../actions/bills-actions';
+import { FETCH_BILLS_REQUEST, FETCH_BILLS_SUCCESS, FETCH_BILLS_ERROR, CREATE_BILL_REQUEST, CREATE_BILL_ERROR, CREATE_BILL_SUCCESS, CLEAR_BILLS, DELETE_BILL_REQUEST, DELETE_BILL_ERROR, DELETE_BILL_SUCCESS, EDIT_BILL_REQUEST, EDIT_BILL_ERROR, EDIT_BILL_SUCCESS} from '../actions/bills-actions';
 
 const initialState = {
   list: null,
@@ -37,6 +37,22 @@ export const billsReducer = (state=initialState, action) => {
 
     case DELETE_BILL_SUCCESS:
       return {...state, list: [ state.list.filter(bill => bill.id !== action.id) ]};
+
+    case EDIT_BILL_REQUEST:
+      return Object.assign({}, state, {loading: true});
+
+    case EDIT_BILL_ERROR:
+      return Object.assign({}, state, {loading: false, error: action.error});
+
+    case EDIT_BILL_SUCCESS:
+      return Object.assign({}, state,
+        {
+          list: state.list.slice(0, action.index)
+            .concat([{...state.list[action.index],
+            list: action.bill
+          }])
+          .concat(state.list.slice(action.index + 1))
+      });
 
     default:
       return state;
