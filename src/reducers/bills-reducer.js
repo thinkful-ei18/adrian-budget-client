@@ -35,8 +35,8 @@ export const billsReducer = (state=initialState, action) => {
     case DELETE_BILL_ERROR:
       return Object.assign({}, state, {loading: false, error: action.error});
 
-    // case DELETE_BILL_SUCCESS:
-    //   return {...state, list: [...state.list, action.bill]};
+    case DELETE_BILL_SUCCESS:
+      return {...state, list: [...state.list.filter(bill => bill.id !== action.id) ]};
 
     default:
       return state;
