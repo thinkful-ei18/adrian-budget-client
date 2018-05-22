@@ -93,3 +93,20 @@ export const DELETE_BILL_SUCCESS = 'DELETE_BILL_SUCCESS';
 export const deleteBillSuccess = () => ({
   type: DELETE_BILL_SUCCESS,
 });
+
+export const deleteBill = id => (dispatch, getState) => {
+  const authToken = localStorage.getItem('authToken');
+
+    dispatch(deleteBillRequest());
+    fetch(`${API_BASE_URL}/bills/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(() => dispatch(deleteBillSuccess()))
+    .catch(err => dispatch(deleteBillError(err)));
+};
