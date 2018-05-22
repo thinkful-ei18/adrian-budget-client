@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Bill } from './Bill';
+import Bill from './Bill';
 import { fetchBills } from '../actions/bills-actions';
 
 export class List extends Component {
