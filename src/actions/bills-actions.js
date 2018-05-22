@@ -117,3 +117,26 @@ export const deleteBill = id => (dispatch, getState) => {
     })
     .catch(err => dispatch(deleteBillError(err)));
 };
+
+export const EDIT_BILL_REQUEST = 'EDIT_BILL_REQUEST';
+export const editBillRequest = () => ({
+  type: EDIT_BILL_REQUEST,
+});
+
+export const EDIT_BILL_ERROR = 'EDIT_BILL_ERROR';
+export const editBillError = error => ({
+  type: EDIT_BILL_ERROR,
+  error
+});
+
+export const EDIT_BILL_SUCCESS = 'EDIT_BILL_SUCCESS';
+export const editBillSuccess = (index, bill) => ({
+  type: EDIT_BILL_SUCCESS,
+  index,
+  bill
+});
+
+export const editBill = (bill, index, id) => (dispatch, getState) => {
+  dispatch(editBillRequest());
+  dispatch(editBillSuccess(bill, index));
+};
