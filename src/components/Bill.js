@@ -54,7 +54,6 @@ render() {
           className='collapsible'
           aria-hidden={!this.state.expanded}
         >
-          {index}
           <h1>{title}</h1>
           <p>${amount}</p>
           <p>
