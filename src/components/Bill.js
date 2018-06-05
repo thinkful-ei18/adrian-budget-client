@@ -37,14 +37,15 @@ export class Bill extends Component {
   }
 
 render() {
-  const { id, title, amount, duedate, beenpaid, interval, category_id } = this.props;
+  const { id, title, amount, duedate, beenpaid, interval, category_id, index } = this.props;
 
   const collapsibleIdentifier = `collapsible-${id}`;
 
   let info;
 
   if (this.state.editing) {
-    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval} cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing}/>
+    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval} cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing} index={index}
+    />
   } else {
     info =
     <div
@@ -52,6 +53,7 @@ render() {
           className='collapsible'
           aria-hidden={!this.state.expanded}
         >
+          {index}
           <h1>{title}</h1>
           <p>${amount}</p>
           <p>

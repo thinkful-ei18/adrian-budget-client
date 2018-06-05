@@ -27,11 +27,12 @@ export class BillForm extends Component {
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit, cancelButton, editing } = this.props;
+    const  { pristine, submitting, handleSubmit, cancelButton, editing, index } = this.props;
 
     return (
       <div>
       {editing}
+      {index}
       <form
         onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
       >
