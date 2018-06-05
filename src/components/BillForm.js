@@ -7,7 +7,8 @@ export class BillForm extends Component {
   handleFormSubmit(values) {
     if (this.props.editing === true) {
       const index = this.props.index;
-      this.props.dispatch(editBill(values, index)); // The index is used to merge the new object w/ old object.
+      const id = this.props.id;
+      this.props.dispatch(editBill(values, index, id)); // The index is used to merge the new object w/ old object.
       this.props.closeForm();
     } else {
       this.props.dispatch(createBill(values));
