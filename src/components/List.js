@@ -26,8 +26,8 @@ export class List extends Component {
     if (this.props.userBills) {
       bills = this.props.userBills;
 
-      listItems = bills.map((item) =>
-        <li key={item.id}>
+      listItems = bills.map((item, index) =>
+        <li key={index}>
           <Bill id={item.id} title={item.title} amount={item.amount}/>
         </li>
       );

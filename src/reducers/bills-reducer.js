@@ -36,7 +36,7 @@ export const billsReducer = (state=initialState, action) => {
       return Object.assign({}, state, {loading: false, error: action.error});
 
     case DELETE_BILL_SUCCESS:
-      return {...state, list: [ state.list.filter(bill => bill.id !== action.id) ]};
+      return {...state, list: state.list.filter(bill => bill.id !== action.id)};
 
     case EDIT_BILL_REQUEST:
       return Object.assign({}, state, {loading: true});
