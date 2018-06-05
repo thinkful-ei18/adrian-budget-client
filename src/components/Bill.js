@@ -44,7 +44,8 @@ render() {
   let info;
 
   if (this.state.editing) {
-    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval} cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing} index={index}
+    info = <BillForm title={title} amount={amount} interval={interval}
+    cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing} index={index}
     />
   } else {
     info =
@@ -59,8 +60,8 @@ render() {
           <p>
             {duedate}
             {beenpaid}
-            {interval}
-            {category_id}
+            {/* extension feature: {interval} */}
+            {/* extension feature: {category_id} */}
           </p>
           <button
             onClick={() => this.togglePaid(id)}

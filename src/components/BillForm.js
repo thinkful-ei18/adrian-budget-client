@@ -48,22 +48,25 @@ export class BillForm extends Component {
           type="number"
           name="amount"
         />
+        {/* extension feature
         <Field
           label="Due Date"
           component={Input}
           type="date"
-          name="date"
-        />
+          name="duedate"
+        /> */}
         <Field
           label="Interval"
           component='select'
           name="interval"
         >
+        <label>Interval</label>
           <option></option>
           <option value="weekly">Weekly</option>
           <option value="biweekly">Bi-weekly</option>
           <option value="monthly">Monthly</option>
         </Field>
+        {/* extension feature
         <label>Categories
         <Field
           label='Utilities'
@@ -95,7 +98,7 @@ export class BillForm extends Component {
           type='checkbox'
           name='other'
         />
-        </label>
+        </label> */}
         <button
           onClick={cancelButton}
         >
