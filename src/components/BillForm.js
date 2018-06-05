@@ -58,7 +58,7 @@ export class BillForm extends Component {
         <Field
           label="Interval"
           component='select'
-          name="interval"
+          name="billinterval"
         >
         <label>Interval</label>
           <option></option>

@@ -28,7 +28,7 @@ export class List extends Component {
 
       listItems = bills.map((item, index) =>
         <li key={index}>
-          <Bill id={item.id} title={item.title} amount={item.amount} index={index}/>
+          <Bill id={item.id} title={item.title} amount={item.amount} billinterval={item.billinterval} index={index}/>
         </li>
       );
     } else {

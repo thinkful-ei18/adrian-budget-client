@@ -37,14 +37,14 @@ export class Bill extends Component {
   }
 
 render() {
-  const { id, title, amount, duedate, beenpaid, interval, category_id, index } = this.props;
+  const { id, title, amount, duedate, beenpaid, billinterval, index } = this.props;
 
   const collapsibleIdentifier = `collapsible-${id}`;
 
   let info;
 
   if (this.state.editing) {
-    info = <BillForm title={title} amount={amount} interval={interval}
+    info = <BillForm title={title} amount={amount} interval={billinterval}
     cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing} index={index}
     />
   } else {
@@ -57,9 +57,9 @@ render() {
           <h1>{title}</h1>
           <p>${amount}</p>
           <p>
-            {duedate}
+            {billinterval}
             {beenpaid}
-            {/* extension feature: {interval} */}
+            {/* extension feature: {duedate} */}
             {/* extension feature: {category_id} */}
           </p>
           <button
@@ -109,7 +109,7 @@ Bill.defaultProps = {
   amount: 0,
   duedate: '',
   beenpaid: false,
-  interval: 'monthly'
+  billinterval: 'monthly'
 }
 
 export default connect()(Bill);
