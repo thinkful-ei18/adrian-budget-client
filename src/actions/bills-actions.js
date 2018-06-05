@@ -130,13 +130,13 @@ export const editBillError = error => ({
 });
 
 export const EDIT_BILL_SUCCESS = 'EDIT_BILL_SUCCESS';
-export const editBillSuccess = (index, bill) => ({
+export const editBillSuccess = (bill, index) => ({
   type: EDIT_BILL_SUCCESS,
-  index,
-  bill
+  bill,
+  index
 });
 
-export const editBill = (bill, index, id) => (dispatch, getState) => {
+export const editBill = (bill, index) => (dispatch, getState) => {
   dispatch(editBillRequest());
   dispatch(editBillSuccess(bill, index));
 };

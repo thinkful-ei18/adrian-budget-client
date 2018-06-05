@@ -47,11 +47,12 @@ export const billsReducer = (state=initialState, action) => {
     case EDIT_BILL_SUCCESS:
       return Object.assign({}, state,
         {
-          list: state.list.slice(0, action.index)
-            .concat([{...state.list[action.index],
-            list: action.bill
-          }])
-          .concat(state.list.slice(action.index + 1))
+          list: state.list.map((item, index) => {
+            if (index === action.index) {
+              return Object.assign({}, item, action.bill);
+            }
+            return item;
+          })
       });
 
     default:

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./Input";
-import { createBill } from '../actions/bills-actions';
+import { createBill, editBill } from '../actions/bills-actions';
 
 export class BillForm extends Component {
   handleFormSubmit(values) {
     if (this.props.editing === true) {
-      console.log(`Edited bill with values: ${values.title}`);
-      // dispatch editBill
+      const index = this.props.index;
+      this.props.dispatch(editBill(values, index)); // The index is used to merge the new object w/ old object.
       this.props.closeForm();
     } else {
       this.props.dispatch(createBill(values));
