@@ -187,5 +187,5 @@ export const updateIncome = income => (dispatch, getState) => {
         return dispatch(updateIncomeSuccess(income));
       }
     })
-    .catch(err => dispatch(editBillError(err)));
+    .catch(err => dispatch(updateIncomeError(err)));
 };
