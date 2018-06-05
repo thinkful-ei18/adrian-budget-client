@@ -120,27 +120,30 @@ const storeAuthToken = (authToken, dispatch) => {
   saveUserCredentials(decodedToken.user);
 };
 
-export const refreshAuthToken = () => (dispatch, getState) => {
+export const refreshAuthToken = value => (dispatch, getState) => {
+  const oldAuthToken = localStorage.getItem('authToken');
+  console.log(value);
   dispatch(loginRequest());
-  const authToken = getState().user.authToken;
-  return fetch(`${API_BASE_URL}/auth/refresh`, {
+  return fetch(`${API_BASE_URL}/refresh`, {
     method: 'POST',
     headers: {
-      // Provide our existing token as credentials to get a new one
-      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${oldAuthToken}`,
     },
+    body: JSON.stringify({
+      value
+    }),
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(({ authToken }) => storeAuthToken(authToken, dispatch))
-    .then(() => dispatch(loginSuccess()))
     .catch(err => {
       // We couldn't get a refresh token because our current credentials
       // are invalid or expired, or something else went wrong, so clear
       // them and sign us out
       dispatch(loginError(err));
-      dispatch(clearToken());
-      clearAuthToken(authToken);
+        // dispatch(clearToken());
+        // clearAuthToken(authToken);
     });
 };
 
@@ -168,25 +171,24 @@ export const updateIncomeSuccess = income => ({
 });
 
 export const updateIncome = income => (dispatch, getState) => {
-  // const authToken = localStorage.getItem('authToken');
+  const authToken = localStorage.getItem('authToken');
 
   dispatch(updateIncomeRequest());
-    // return fetch(`${API_BASE_URL}/users/income`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${authToken}`
-    //   },
-    //   body: JSON.stringify(income)
-    // })
-    // .then(res => normalizeResponseErrors(res))
-    // .then(res => {
-    //   if (!res.ok) {
-    //     return dispatch(updateIncomeError(res));
-    //   } else {
-    //     return dispatch(updateIncomeSuccess(income));
-    //   }
-    // })
-    // .catch(err => dispatch(updateIncomeError(err)));
-    dispatch(updateIncomeSuccess(income));
+    return fetch(`${API_BASE_URL}/users/income`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`
+      },
+      body: JSON.stringify(income)
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      if (!res.ok) {
+        return dispatch(updateIncomeError(res));
+      } else {
+        dispatch(updateIncomeSuccess(income));
+      }
+    })
+    .catch(err => dispatch(updateIncomeError(err)));
 };

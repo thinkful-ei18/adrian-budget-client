@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./Input";
-import { updateIncome } from '../actions/user-actions';
+import { updateIncome, refreshAuthToken } from '../actions/user-actions';
 
 export class IncomeForm extends Component {
   handleFormSubmit(values) {
-    this.props.dispatch(updateIncome(values.income));
+    this.props.dispatch(updateIncome(values));
+    this.props.dispatch(refreshAuthToken(values.income));
+
   }
 
   render() {

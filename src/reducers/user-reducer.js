@@ -41,7 +41,7 @@ export const userReducer = (state=initialState, action) => {
     return Object.assign({}, state, {loading: false, error: action.error});
 
     case UPDATE_INCOME_SUCCESS:
-      return Object.assign({}, state, {info: {...state.info, income: action.income}});
+      return Object.assign({}, state, {info: {...state.info, income: action.income.income}});
 
     default:
       return state;
