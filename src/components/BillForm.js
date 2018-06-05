@@ -17,22 +17,19 @@ export class BillForm extends Component {
   }
 
   componentWillMount() {
-    // This form is reusable; it takes props as initial values.
+    // This form is reusable; it takes props as initial values when opened to edit bill info.
     this.props.initialize({
       title: this.props.title,
       amount: this.props.amount,
-      duedate: this.props.duedate,
-      interval: this.props.interval
+      billinterval: this.props.billinterval
     });
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit, cancelButton, editing, index } = this.props;
+    const  { pristine, submitting, handleSubmit, cancelButton} = this.props;
 
     return (
       <div>
-      {editing}
-      {index}
       <form
         onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
       >
@@ -55,12 +52,12 @@ export class BillForm extends Component {
           type="date"
           name="duedate"
         /> */}
+        <label>Interval</label>
         <Field
           label="Interval"
           component='select'
           name="billinterval"
         >
-        <label>Interval</label>
           <option></option>
           <option value="weekly">Weekly</option>
           <option value="biweekly">Bi-weekly</option>

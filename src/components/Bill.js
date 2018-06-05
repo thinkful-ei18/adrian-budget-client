@@ -37,14 +37,14 @@ export class Bill extends Component {
   }
 
 render() {
-  const { id, title, amount, duedate, beenpaid, billinterval, index } = this.props;
+  const { id, title, amount, beenpaid, billinterval, index } = this.props;
 
   const collapsibleIdentifier = `collapsible-${id}`;
 
   let info;
 
   if (this.state.editing) {
-    info = <BillForm title={title} amount={amount} interval={billinterval}
+    info = <BillForm title={title} amount={amount} billinterval={billinterval}
     cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing} index={index}
     />
   } else {
