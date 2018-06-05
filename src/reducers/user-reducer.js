@@ -1,4 +1,4 @@
-import {REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, SET_AUTH_TOKEN, CLEAR_AUTH_TOKEN} from '../actions/user-actions';
+import {REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, SET_AUTH_TOKEN, CLEAR_AUTH_TOKEN, UPDATE_INCOME_REQUEST, UPDATE_INCOME_ERROR, UPDATE_INCOME_SUCCESS} from '../actions/user-actions';
 
 const initialState = {
   authToken: null, // authToken !== null does not mean it has been validated
@@ -33,6 +33,15 @@ export const userReducer = (state=initialState, action) => {
 
     case LOGIN_SUCCESS:
     return Object.assign({}, state, {loading: false, info: action.info});
+
+    case UPDATE_INCOME_REQUEST:
+    return Object.assign({}, state, {loading: true});
+
+    case UPDATE_INCOME_ERROR:
+    return Object.assign({}, state, {loading: false, error: action.error});
+
+    case UPDATE_INCOME_SUCCESS:
+      return Object.assign({}, state, {info: {...state.info, income: action.income}});
 
     default:
       return state;

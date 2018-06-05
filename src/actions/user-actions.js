@@ -168,24 +168,25 @@ export const updateIncomeSuccess = income => ({
 });
 
 export const updateIncome = income => (dispatch, getState) => {
-  const authToken = localStorage.getItem('authToken');
+  // const authToken = localStorage.getItem('authToken');
 
   dispatch(updateIncomeRequest());
-    return fetch(`${API_BASE_URL}/users/income`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${authToken}`
-      },
-      body: JSON.stringify(income)
-    })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => {
-      if (!res.ok) {
-        return dispatch(updateIncomeError(res));
-      } else {
-        return dispatch(updateIncomeSuccess(income));
-      }
-    })
-    .catch(err => dispatch(updateIncomeError(err)));
+    // return fetch(`${API_BASE_URL}/users/income`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${authToken}`
+    //   },
+    //   body: JSON.stringify(income)
+    // })
+    // .then(res => normalizeResponseErrors(res))
+    // .then(res => {
+    //   if (!res.ok) {
+    //     return dispatch(updateIncomeError(res));
+    //   } else {
+    //     return dispatch(updateIncomeSuccess(income));
+    //   }
+    // })
+    // .catch(err => dispatch(updateIncomeError(err)));
+    dispatch(updateIncomeSuccess(income));
 };
