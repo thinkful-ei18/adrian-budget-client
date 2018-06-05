@@ -136,7 +136,24 @@ export const editBillSuccess = (bill, index) => ({
   index
 });
 
-export const editBill = (bill, index) => (dispatch, getState) => {
+export const editBill = (bill, index, id) => (dispatch, getState) => {
+  const authToken = localStorage.getItem('authToken');
   dispatch(editBillRequest());
-  dispatch(editBillSuccess(bill, index));
+    return fetch(`${API_BASE_URL}/bills/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`
+      },
+      body: JSON.stringify(bill)
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      if (!res.ok) {
+        return dispatch(editBillError(res));
+      } else {
+        return dispatch(editBillSuccess(bill, index));
+      }
+    })
+    .catch(err => dispatch(editBillError(err)));
 };
