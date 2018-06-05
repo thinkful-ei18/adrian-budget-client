@@ -149,3 +149,43 @@ export const logout = () => (dispatch) => {
   dispatch(clearToken());
   clearAuthToken();
 }
+
+export const UPDATE_INCOME_REQUEST = 'UPDATE_INCOME_REQUEST';
+export const updateIncomeRequest = () => ({
+  type: UPDATE_INCOME_REQUEST,
+});
+
+export const UPDATE_INCOME_ERROR = 'UPDATE_INCOME_ERROR';
+export const updateIncomeError = error => ({
+  type: UPDATE_INCOME_ERROR,
+  error
+});
+
+export const UPDATE_INCOME_SUCCESS = 'UPDATE_INCOME_SUCCESS';
+export const updateIncomeSuccess = income => ({
+  type: UPDATE_INCOME_SUCCESS,
+  income
+});
+
+export const updateIncome = income => (dispatch, getState) => {
+  const authToken = localStorage.getItem('authToken');
+
+  dispatch(updateIncomeRequest());
+    return fetch(`${API_BASE_URL}/users/income`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`
+      },
+      body: JSON.stringify(income)
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => {
+      if (!res.ok) {
+        return dispatch(updateIncomeError(res));
+      } else {
+        return dispatch(updateIncomeSuccess(income));
+      }
+    })
+    .catch(err => dispatch(editBillError(err)));
+};
