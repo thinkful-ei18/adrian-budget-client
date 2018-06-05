@@ -44,7 +44,7 @@ export class Dashboard extends Component {
     }
 
     if (this.state.editingBillForm) {
-      billForm = <BillForm cancelButton={this.toggleBillForm}/>
+      billForm = <BillForm cancelButton={this.toggleBillForm} closeForm={this.toggleBillForm}/>
     } else {
       billForm = '';
     }

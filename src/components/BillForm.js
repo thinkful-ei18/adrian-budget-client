@@ -5,7 +5,15 @@ import { createBill } from '../actions/bills-actions';
 
 export class BillForm extends Component {
   handleFormSubmit(values) {
-    this.props.dispatch(createBill(values));
+    if (this.props.editing === true) {
+      console.log(`Edited bill with values: ${values.title}`);
+      // dispatch editBill
+      this.props.closeForm();
+    } else {
+      this.props.dispatch(createBill(values));
+      this.props.closeForm();
+    }
+
   }
 
   componentWillMount() {
@@ -19,10 +27,11 @@ export class BillForm extends Component {
   }
 
   render() {
-    const  { pristine, submitting, handleSubmit, cancelButton } = this.props;
+    const  { pristine, submitting, handleSubmit, cancelButton, editing } = this.props;
 
     return (
       <div>
+      {editing}
       <form
         onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
       >

@@ -44,7 +44,7 @@ render() {
   let info;
 
   if (this.state.editing) {
-    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval} cancelButton={this.toggleEditing}/>
+    info = <BillForm title={title} amount={amount} duedate={duedate} interval={interval} cancelButton={this.toggleEditing} editing={true} closeForm={this.toggleEditing}/>
   } else {
     info =
     <div
