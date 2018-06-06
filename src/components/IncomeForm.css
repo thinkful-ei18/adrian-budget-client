@@ -1,0 +1,50 @@
+.income-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+
+  background-color: #FEFEFE;
+  border-radius: 5px;
+  padding: 25px 25px;
+  margin: 10px;
+
+  /* -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15); */
+}
+
+.form-input, .income-form input, .income-form label {
+  display: block;
+  width: 100%;
+}
+
+.income-form label {
+  padding: 10px 0px;
+}
+
+.income-form label, .income-form button, .income-form input, .bill-field {
+  color: #575757;
+}
+
+.income-form .bill-select {
+  margin: 0;
+}
+
+.income-form button {
+  flex: 1;
+
+  background-color: #434D61;
+  border: none;
+  border-radius: 5px;
+  color: #FEFEFE;
+  font-weight: bold;
+  height: 35px;
+  letter-spacing: 1px;
+  margin: 5px 0px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.income-form button:nth-of-type(1) {
+  margin-top: 25px;
+}

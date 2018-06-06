@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./Input";
 import { updateIncome, refreshAuthToken } from '../actions/user-actions';
+import './IncomeForm.css';
 
 export class IncomeForm extends Component {
   handleFormSubmit(values) {
@@ -16,6 +17,7 @@ export class IncomeForm extends Component {
     return (
       <div>
         <form
+          className='income-form'
             onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
           >
             <Field
