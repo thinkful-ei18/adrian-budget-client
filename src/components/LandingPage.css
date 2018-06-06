@@ -3,12 +3,12 @@
 }
 
 .landing-page h1, p {
-  text-align: center;
 }
 
 .landing-page h1 {
   color: #434D61;
   margin: 0;
+  text-align: center;
 }
 
 .landing-page p {
@@ -16,4 +16,5 @@
   color: #575757;
   margin: 0;
   padding: 25px 15px;
+  text-align: center;
 }

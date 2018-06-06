@@ -30,12 +30,12 @@
 }
 
 .bill-button[aria-expanded=true] {
-  background-color: #675FFD;
+  background-color: #4d4361;
   color: #FEFEFE;
 }
 
 .bill-toggle-btn[aria-expanded=true] {
-  background-color: #7069FD;
+  background-color: #9488ac;
 }
 
 .bill-toggle-btn {
@@ -106,7 +106,7 @@
   height: 35px;
   margin: 5px;
 
-  background-color: #7069FD;
+  background-color: #4C4360;
   border: none;
   border-radius: 5px;
   color: #FEFEFE;
