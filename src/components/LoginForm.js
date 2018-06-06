@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Input from "./Input";
 import { required, nonEmpty } from "../utils/validators";
 import { login } from '../actions/user-actions';
+import './LoginForm.css';
 
 export class LoginForm extends Component {
   handleFormSubmit(values) {
@@ -31,10 +32,11 @@ export class LoginForm extends Component {
       <div>
         <main>
           <form
+          className='login-form'
             onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
           >
 				    <Field
-              label="username"
+              label="Username"
               component={Input}
               placeholder="sally123"
               type="text"
@@ -43,7 +45,7 @@ export class LoginForm extends Component {
               validate={[required, nonEmpty]}
             />
 				    <Field
-              label="password"
+              label="Password"
               component={Input}
               placeholder="••••••••"
               type="password"
