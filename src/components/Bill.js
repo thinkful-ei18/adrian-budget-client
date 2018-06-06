@@ -37,7 +37,7 @@ export class Bill extends Component {
   }
 
 render() {
-  const { id, title, amount, beenpaid, billinterval, index } = this.props;
+  const { id, title, amount, billinterval, index } = this.props;
 
   const collapsibleIdentifier = `collapsible-${id}`;
 
@@ -51,14 +51,14 @@ render() {
     info =
     <div
           id={collapsibleIdentifier}
-          className='collapsible'
+          className='collapsible expanded-bill'
           aria-hidden={!this.state.expanded}
         >
-          <h1>{title}</h1>
-          <p>${amount}</p>
-          <p>
-            {billinterval}
-            {beenpaid}
+          <p className='expanded-amt'>${amount}</p>
+          <p className='expanded-title'>{title}</p>
+          <p className='expanded-int'>
+            Paid {billinterval}
+            {/* {beenpaid} */}
             {/* extension feature: {duedate} */}
             {/* extension feature: {category_id} */}
           </p>

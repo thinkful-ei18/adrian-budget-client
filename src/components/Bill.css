@@ -8,9 +8,6 @@
   padding: 15px;
 }
 
-/* .bill {
-} */
-
 .bill-button {
   display: flex;
   flex-direction: row;
@@ -72,6 +69,33 @@
   content: '▲';
 }
 
+.expanded-bill {
+  color: #444E62;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.expanded-title {
+  margin: 0;
+  padding: 0;
+}
+
+.expanded-amt {
+ font-size: 150%;
+ margin: 0;
+ padding-top: 10px;
+}
+
+.expanded-int {
+  background-color: #444E62;
+  border-radius: 10px;
+  color: #FEFEFE;
+  font-size: 75%;
+  padding: 5px 0px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .collapsible {
   visibility: hidden;
   overflow-y: hidden;
@@ -80,7 +104,6 @@
     overflow-y .75s linear,
     visibility .75s linear;
 }
-
 
 .collapsible[aria-hidden=false] {
   visibility: visible;
