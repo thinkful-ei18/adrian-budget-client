@@ -1,4 +1,44 @@
 /* For mobile phones: */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  background-color: #444E62;
+  color: white;
+}
+
+.navbar h1 {
+  flex: 1;
+  margin: 0;
+}
+
+.navbar ul {
+  display: inline-flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  align-items: center;
+  display: flex;
+  flex: 1;
+
+  list-style: none;
+  text-align: center;
+}
+
+.navbar a {
+  flex: 1;
+
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 @media only screen and (min-width: 768px)  {
   /* For desktop: */

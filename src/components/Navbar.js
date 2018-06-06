@@ -34,6 +34,7 @@ export class Navbar extends Component {
 
       menu =
           <nav
+            className='navbar'
             aria-expanded={this.state.showMenu}
             aria-controls={navbarIdentifier}
           >
@@ -46,7 +47,7 @@ export class Navbar extends Component {
           </nav>
     } else {
       menu =
-        <nav>
+        <nav className='navbar'>
           <h1>Windfall</h1>
           <ul>
             <li>
