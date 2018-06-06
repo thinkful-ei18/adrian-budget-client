@@ -1,0 +1,19 @@
+.landing-page {
+  padding: 25px 0px;
+}
+
+.landing-page h1, p {
+  text-align: center;
+}
+
+.landing-page h1 {
+  color: #434D61;
+  margin: 0;
+}
+
+.landing-page p {
+  border-bottom: 1px solid rgb(223, 223, 223);
+  color: #575757;
+  margin: 0;
+  padding: 25px 15px;
+}

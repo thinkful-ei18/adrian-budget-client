@@ -5,16 +5,14 @@ import './LandingPage.css';
 export default class LandingPage extends Component {
   render() {
     return(
-      <div>
-        <header>
-          <h1>No budget required</h1>
-          <p>Windfall helps you see how much money's left over after paying your bills.</p>
+      <div className='landing-page-container'>
+        <main className='landing-page'>
+          <h1>No budget required.</h1>
+          <p>Create a list of bills, track what's been paid so far, and take control of your windfall by knowing how much money you have left over.</p>
           <div>
             <RegistrationForm/>
           </div>
-        </header>
-        <main>
-          <div>
+          {/* <div>
             <h2>Create a list of bills</h2>
             <p>View them at your computer or on your phone</p>
           </div>
@@ -25,7 +23,7 @@ export default class LandingPage extends Component {
           <div>
             <h2>Track your windfall</h2>
             <p>Always know what's left over after paying your bills</p>
-          </div>
+          </div> */}
         </main>
       </div>
     );
