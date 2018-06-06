@@ -104,14 +104,14 @@ export class Navbar extends Component {
               id={navbarIdentifier}
               className="dropdown-menu"
             >
-						  <ul>
+						  <ul className='dropdown-menu-ul'>
                 <li>
-                  <button onClick={this.handleLogOut}>Logout</button>
+                  <button className='dropdown-menu-button' onClick={this.handleLogOut}>Logout</button>
                 </li>
                 <li>
                   <button
                     id={billFormIdentifier}
-                    className='billform-toggle-btn'
+                    className='billform-toggle-btn dropdown-menu-button'
                     aria-expanded={this.state.showBillForm}
                     aria-controls={billFormIdentifier}
                     onClick={this.toggleBillForm}
@@ -125,7 +125,7 @@ export class Navbar extends Component {
               <li>
                 <button
                   id={incomeFormIdentifier}
-                  className='incomeform-toggle-btn'
+                  className='incomeform-toggle-btn dropdown-menu-button'
                   aria-expanded={this.state.showIncomeForm}
                   aria-controls={incomeFormIdentifier}
                   onClick={this.toggleIncomeForm}

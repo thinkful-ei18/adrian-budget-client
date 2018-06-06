@@ -58,7 +58,7 @@
   padding: 0;
 }
 
-.dropdown-menu ul {
+.dropdown-menu-ul {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -69,11 +69,10 @@
   padding: 10px;
 }
 
-.dropdown-menu li {
+.dropdown-menu-ul li {
   flex: 1;
   list-style: none;
 
-  color: white;
   padding: 10px 0px;
   border-bottom: 1px solid whitesmoke;
 }
@@ -82,7 +81,7 @@
   border: none; /* remove border from last list item */
 }
 
-.dropdown-menu button {
+.dropdown-menu-button {
   background: none;
   border: none;
   color: white;
