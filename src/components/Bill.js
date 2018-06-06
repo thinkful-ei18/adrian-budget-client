@@ -57,26 +57,31 @@ render() {
           <p className='expanded-amt'>${amount}</p>
           <p className='expanded-title'>{title}</p>
           <p className='expanded-int'>
-            Paid {billinterval}
+            - Due {billinterval}
             {/* {beenpaid} */}
             {/* extension feature: {duedate} */}
             {/* extension feature: {category_id} */}
           </p>
-          <button
-            onClick={() => this.togglePaid(id)}
-          >
-            Mark As Paid
-          </button>
-          <button
-            onClick={() => this.toggleEditing(id)}
-          >
-            Edit
-          </button>
-          <button
-            onClick={() => this.deleteBill(id)}
-          >
-            Delete
-          </button>
+          <div className='expanded-button-container'>
+            {/* EXTENSION FEATURE! <button
+              className='expanded-button'
+              onClick={() => this.togglePaid(id)}
+            >
+              Mark As Paid
+            </button> */}
+            <button
+              className='expanded-button'
+              onClick={() => this.toggleEditing(id)}
+            >
+              Edit
+            </button>
+            <button
+              className='expanded-button'
+              onClick={() => this.deleteBill(id)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
   }
 

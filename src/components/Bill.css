@@ -83,16 +83,30 @@
 .expanded-amt {
  font-size: 150%;
  margin: 0;
- padding-top: 10px;
 }
 
 .expanded-int {
-  background-color: #444E62;
-  border-radius: 10px;
+  color: #444E62;
+  font-size: 80%;
+  text-transform: uppercase;
+}
+
+.expanded-button-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.expanded-button {
+  flex: 1;
+  height: 35px;
+  margin: 5px;
+
+  background-color: #7069FD;
+  border: none;
+  border-radius: 5px;
   color: #FEFEFE;
-  font-size: 75%;
-  padding: 5px 0px;
-  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
