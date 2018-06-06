@@ -57,9 +57,9 @@ export class BillForm extends Component {
           type="date"
           name="duedate"
         /> */}
-        <label>Interval</label>
+        <label className='interval-label'>Interval</label>
         <Field
-          className='bill-field'
+          className='bill-select'
           label="Interval"
           component='select'
           name="billinterval"
