@@ -33,15 +33,18 @@ export class BillForm extends Component {
     return (
       <div>
       <form
+        className='bill-form'
         onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
       >
         <Field
+          className='bill-field'
           label="Title"
           component={Input}
           type="text"
           name="title"
         />
         <Field
+          className='bill-field'
           label="Amount"
           component={Input}
           type="number"
@@ -56,6 +59,7 @@ export class BillForm extends Component {
         /> */}
         <label>Interval</label>
         <Field
+          className='bill-field'
           label="Interval"
           component='select'
           name="billinterval"
