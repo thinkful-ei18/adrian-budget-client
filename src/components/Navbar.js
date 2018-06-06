@@ -58,7 +58,7 @@ export class Navbar extends Component {
             <button
               onClick={this.toggleMenu}
             >
-              <p>{ user.username } &#x25BC;</p>
+              <p> Menu &#x25BC;</p>
             </button>
           </nav>
     } else {
