@@ -47,10 +47,10 @@
   border: none;
   color: white;
   font-weight: bold;
-  text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
 }
 
 .navbar p {
@@ -64,6 +64,7 @@
   flex-wrap: wrap;
   justify-content: center;
 
+  background-color: #3c517b;
   margin: 0;
   padding: 10px;
 }
@@ -71,14 +72,25 @@
 .dropdown-menu li {
   flex: 1;
   list-style: none;
+
+  color: white;
+  padding: 10px 0px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.dropdown-menu li:nth-child(3) {
+  border: none; /* remove border from last list item */
 }
 
 .dropdown-menu button {
-
   background: none;
   border: none;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 768px)  {
