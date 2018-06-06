@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import BillForm from '../components/BillForm';
+import IncomeForm from '../components/IncomeForm';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -14,14 +16,28 @@ export class Navbar extends Component {
     this.props.dispatch(logout());
   }
 
+  toggleBillForm() {
+    this.setState({showBillForm: !this.state.editingBillForm, editingBillForm: !this.state.editingBillForm});
+  }
+
+  toggleIncomeForm() {
+    this.setState({showIncomeForm: !this.state.showIncomeForm, editingIncomeForm: !this.state.editingIncomeForm});
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
-      showMenu: false
+      showMenu: false,
+      showBillForm: false,
+      editingBillForm: false,
+      showIncomeForm: false,
+      editingIncomeForm: false
     }
     this.handleLogOut = this.handleLogOut.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.toggleBillForm = this.toggleBillForm.bind(this);
+    this.toggleIncomeForm = this.toggleIncomeForm.bind(this);
   }
 
   render() {
@@ -60,7 +76,26 @@ export class Navbar extends Component {
         </nav>
     }
 
-    return(
+    let billForm;
+    let incomeForm;
+
+    const billFormIdentifier = `billForm-${user.id}`;
+    const incomeFormIdentifier = `billForm-${user.id}`;
+
+    if (this.state.editingBillForm) {
+      billForm = <BillForm cancelButton={this.toggleBillForm} closeForm={this.toggleBillForm}/>
+    } else {
+      billForm = '';
+    }
+
+    if (this.state.editingIncomeForm) {
+      incomeForm = <IncomeForm cancelButton={this.toggleIncomeForm}/>
+    } else {
+      incomeForm = '';
+    }
+
+
+    return (
     <div>
       <header>
         {menu}
@@ -72,6 +107,34 @@ export class Navbar extends Component {
 						  <ul>
                 <li>
                   <button onClick={this.handleLogOut}>Logout</button>
+                </li>
+                <li>
+                  <button
+                    id={billFormIdentifier}
+                    className='billform-toggle-btn'
+                    aria-expanded={this.state.showBillForm}
+                    aria-controls={billFormIdentifier}
+                    onClick={this.toggleBillForm}
+                  >
+                New Bill
+                </button>
+                <div>
+                  {billForm}
+                </div>
+              </li>
+              <li>
+                <button
+                  id={incomeFormIdentifier}
+                  className='incomeform-toggle-btn'
+                  aria-expanded={this.state.showIncomeForm}
+                  aria-controls={incomeFormIdentifier}
+                  onClick={this.toggleIncomeForm}
+                >
+                Change Income
+                </button>
+                <div>
+                  {incomeForm}
+                </div>
               </li>
             </ul>
 						</div>
