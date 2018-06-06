@@ -1,0 +1,25 @@
+
+.footer {
+  border-top: 1px solid rgb(223, 223, 223);
+  padding: 10px;
+}
+
+.footer p {
+  text-align: center;
+}
+
+.footer-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.footer-list li {
+  list-style: none;
+  flex: 1;
+  font-weight: bold;
+}
+
+.footer-img-container {
+  padding-top: 25px;
+  text-align: center;
+}
