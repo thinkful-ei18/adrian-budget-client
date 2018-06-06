@@ -83,13 +83,18 @@ render() {
   return (
     <Fragment>
         <button
-          className='bill-toggle-btn'
+          className='bill-button'
           aria-expanded={this.state.expanded}
           aria-controls={collapsibleIdentifier}
           onClick={this.togglePanel}
         >
-          <h1>{title}</h1>
-          <p>${amount}</p>
+          <div className='bill-info'>
+            <p className='bill-amt'>${amount}</p>
+            <p className='bill-title'>{title}</p>
+          </div>
+          <div className='bill-toggle-btn'
+            aria-expanded={this.state.expanded}
+          />
         </button>
         <div
           id={collapsibleIdentifier}

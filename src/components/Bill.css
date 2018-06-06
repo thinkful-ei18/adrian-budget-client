@@ -1,11 +1,75 @@
+.bills-list {
+  margin: 0;
+  padding: 0;
+}
+
+.bills-list li {
+  list-style: none;
+  padding: 15px;
+}
+
+/* .bill {
+} */
+
+.bill-button {
+  display: flex;
+  flex-direction: row;
+
+  color: #444E62;
+  background-color: #FEFEFE;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+
+  -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+}
+
+.bill-button[aria-expanded=true] {
+  background-color: #675FFD;
+  color: #FEFEFE;
+}
+
+.bill-toggle-btn[aria-expanded=true] {
+  background-color: #7069FD;
+}
+
+.bill-toggle-btn {
+  align-self: center;
+  flex: 20%;
+
+  border-radius: 10px;
+  height: 50px;
+  padding: 15px 0px;
+  text-align: center;
+}
+
+.bill-info {
+  flex: 80%;
+}
+
+.bill-title {
+  font-size: 115%;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+
+.bill-amt {
+  font-size: 180%;
+  margin: 0;
+  padding: 0;
+}
+
 .bill-toggle-btn::after {
-  display: inline-block;
-  margin-left: 5px;
-  content: '+'
+  content: '▼';
 }
 
 .bill-toggle-btn[aria-expanded=true]::after {
-  content: '-'
+  content: '▲';
 }
 
 .collapsible {
