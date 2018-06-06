@@ -5,9 +5,9 @@ export default function User(props) {
   return (
     <div className='user'>
       <h1 className='user-firstname'>Hello, {props.firstname}!</h1>
-      <h2 className='user-grossincome'>You make ${props.grossincome} a month.</h2>
+      <h2 className='user-grossincome'>You make ${props.grossincome.toLocaleString('en')} a month.</h2>
       <p className='user-netincome'>
-        After bills, you'll have ${props.netincome} left over.
+        After bills, you'll have ${props.netincome.toLocaleString('en')} left over.
       </p>
     </div>
   );
