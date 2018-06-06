@@ -1,11 +1,12 @@
 import React from 'react';
+import './User.css';
 
-export default function User(props){
+export default function User(props) {
   return (
-    <div>
-      <h1>Hello {props.firstname}!</h1>
-      <h2>You make ${props.grossincome} a month.</h2>
-      <p>
+    <div className='user'>
+      <h1 className='user-firstname'>Hello {props.firstname}!</h1>
+      <h2 className='user-grossincome'>You make ${props.grossincome} a month.</h2>
+      <p className='user-netincome'>
         After bills, you'll have: ${props.netincome} left over.
       </p>
     </div>
@@ -13,7 +14,7 @@ export default function User(props){
 }
 
 User.defaultProps = {
- firstname: 'User',
- grossincome: 0,
- netincome: 0
+  firstname: 'User',
+  grossincome: 0,
+  netincome: 0
 };
