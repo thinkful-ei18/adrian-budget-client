@@ -1,4 +1,17 @@
-.user-firstname, .user-grossincome, .user-netincome {
+.user {
+  color: #444E62;
+  padding: 10px;
+}
+
+.user-grossincome, .user-netincome {
   margin: 0;
-  padding: 0;
+}
+
+.user-firstname {
+  text-transform: capitalize;
+}
+
+.user-netincome {
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
 }
