@@ -64,7 +64,7 @@ export class Navbar extends Component {
     } else {
       menu =
         <nav className='navbar'>
-          <h1>Windfall</h1>
+          <Link to='/'><h1>Windfall</h1></Link>
           <ul>
             <li>
               <Link to='/register'>Sign up</Link>
