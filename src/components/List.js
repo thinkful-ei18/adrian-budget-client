@@ -37,8 +37,8 @@ export class List extends Component {
     }
 
     return (
-      <div>
-        <ul>
+      <div className='bills-list-container' >
+        <ul className='bills-list'>
           {listItems}
         </ul>
       </div>
