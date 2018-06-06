@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: row;
 
-  color: #444E62;
+  color: #575757;
   background-color: #FEFEFE;
   border: none;
   border-radius: 10px;
@@ -75,7 +75,7 @@
 }
 
 .expanded-bill {
-  color: #444E62;
+  color: #575757;
   padding: 10px;
   text-transform: capitalize;
 }
@@ -91,7 +91,7 @@
 }
 
 .expanded-int {
-  color: #444E62;
+  color: #575757;
   font-size: 80%;
   text-transform: uppercase;
 }

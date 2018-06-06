@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "./Input";
 import { createBill, editBill } from '../actions/bills-actions';
+import './BillForm.css';
 
 export class BillForm extends Component {
   handleFormSubmit(values) {

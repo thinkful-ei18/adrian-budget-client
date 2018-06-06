@@ -1,15 +1,16 @@
 .user {
-  color: #444E62;
   padding: 10px 25px;
   text-align: center;
 }
 
 .user-grossincome, .user-netincome {
+  color: #575757;
   margin: 0;
   padding: 5px 0px;
 }
 
 .user-firstname {
+  color: #444E62;
   text-transform: capitalize;
 }
 
