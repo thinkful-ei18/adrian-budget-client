@@ -7,8 +7,23 @@ import './Dashboard.css';
 
 export class Dashboard extends Component {
 
+  sumOfKeys (expenses, key) {
+    return expenses.reduce((acc, expense) => {
+      return acc + expense[key];
+    }, 0);
+  }
+
   render() {
-    const { loggedIn, user } = this.props;
+    let netIncome;
+    const { loggedIn, user, bills } = this.props;
+
+    if (bills !== null) {
+      const sumOfBills = this.sumOfKeys(bills, 'amount');
+      netIncome = user.income - sumOfBills;
+    } else {
+      netIncome = 0;
+    }
+
 
     if (!loggedIn) {
       return <Redirect to='/'/>;
@@ -16,8 +31,8 @@ export class Dashboard extends Component {
 
     return (
       <div>
-        <main>
-          <User firstname={user.firstname} grossincome={user.income}/>
+        <main className='dashboard'>
+          <User firstname={user.firstname} grossincome={user.income} netincome={netIncome}/>
           <List/>
         </main>
       </div>
@@ -27,7 +42,8 @@ export class Dashboard extends Component {
 
 export const mapStateToProps = (state, props) => ({
   loggedIn: state.currentUser.info !== null,
-  user: state.currentUser.info ? state.currentUser.info : ''
+  user: state.currentUser.info ? state.currentUser.info : '',
+  bills: state.bills.list
 });
 
 export default connect(mapStateToProps)(Dashboard);
