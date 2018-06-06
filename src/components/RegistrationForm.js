@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Input from "./Input";
 import { required, nonEmpty, matches, length, isTrimmed } from "../utils/validators";
 import { register } from '../actions/user-actions';
+import './RegistrationForm.css';
 
 const passwordLength = length({ min: 12, max: 72 });
 const matchesPassword = matches("password");
@@ -34,6 +35,7 @@ export class RegistrationForm extends Component {
       <div>
         <main>
           <form
+            className='registration-form'
             onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}
           >
             <Field
