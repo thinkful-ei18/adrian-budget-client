@@ -10,6 +10,7 @@ export default class LandingPage extends Component {
           <h1>No budget required.</h1>
           <p>Create a list of bills, track what's been paid so far, and take control of your windfall by knowing how much money you have left over.</p>
           <div>
+          <h2>Let's get started!</h2>
             <RegistrationForm/>
           </div>
           {/* <div>

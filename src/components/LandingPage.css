@@ -2,13 +2,15 @@
   padding: 25px 0px;
 }
 
-.landing-page h1, p {
-}
-
-.landing-page h1 {
+.landing-page h1, h2 {
   color: #434D61;
   margin: 0;
   text-align: center;
+}
+
+.landing-page h2 {
+  color: #575757;
+  padding: 25px 0px;
 }
 
 .landing-page p {
@@ -17,4 +19,16 @@
   margin: 0;
   padding: 25px 15px;
   text-align: center;
+}
+
+@media only screen and (min-width: 768px)  {
+  /* For desktop: */
+
+  .landing-page {
+    padding: 5vw;
+  }
+
+  .landing-page h2 {
+    padding: 50px 0px;
+  }
 }
