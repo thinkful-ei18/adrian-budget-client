@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BillForm from '../components/BillForm';
 import IncomeForm from '../components/IncomeForm';
+import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -24,6 +25,14 @@ export class Navbar extends Component {
     this.setState({showIncomeForm: !this.state.showIncomeForm, editingIncomeForm: !this.state.editingIncomeForm});
   }
 
+  moveDemoUser() {
+    return <Redirect to='/login'/>;
+  }
+
+  loginDemoUser() {
+    this.props.dispatch(login('demouser', 'thinkful2018'));
+  }
+
   constructor(props) {
     super(props);
 
@@ -41,7 +50,7 @@ export class Navbar extends Component {
   }
 
   render() {
-    const { loggedIn, user, dispatch } = this.props;
+    const { loggedIn, user} = this.props;
     const navbarIdentifier = `navbar-${user.id}`;
 
     let menu;
@@ -66,7 +75,9 @@ export class Navbar extends Component {
         <nav className='navbar'>
           <Link to='/'><h1 className='loggedout'>Windfall</h1></Link>
           <ul>
-          <button onClick={() => {dispatch(login('demouser', 'thinkful2018'))
+          <button onClick={() => {
+            // this.moveDemoUser();
+            this.loginDemoUser();
           }}>
               Demo
           </button>
