@@ -48,3 +48,13 @@
 .bill-form button:nth-of-type(1) {
   margin-top: 25px;
 }
+
+
+@media only screen and (min-width: 768px)  {
+  /* For desktop: */
+
+  .bill-form {
+    /* margin: 0 auto; */
+    width: 35%;
+  }
+}
