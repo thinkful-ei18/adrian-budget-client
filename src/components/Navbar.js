@@ -106,9 +106,6 @@ export class Navbar extends Component {
             >
 						  <ul className='dropdown-menu-ul'>
                 <li>
-                  <button className='dropdown-menu-button' onClick={this.handleLogOut}>Logout</button>
-                </li>
-                <li>
                   <button
                     id={billFormIdentifier}
                     className='billform-toggle-btn dropdown-menu-button'
@@ -136,6 +133,9 @@ export class Navbar extends Component {
                   {incomeForm}
                 </div>
               </li>
+                <li>
+                  <button className='dropdown-menu-button' onClick={this.handleLogOut}>Logout</button>
+                </li>
             </ul>
 						</div>
 					) : null}

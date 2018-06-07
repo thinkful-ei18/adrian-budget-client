@@ -27,15 +27,15 @@ export class IncomeForm extends Component {
               name="income"
             />
             <button
-              onClick={cancelButton}
-            >
-              Cancel
-            </button>
-            <button
               type="submit"
               disabled={pristine || submitting}
             >
               Submit
+            </button>
+            <button
+              onClick={cancelButton}
+            >
+              Cancel
             </button>
         </form>
       </div>

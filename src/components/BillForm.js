@@ -103,15 +103,15 @@ export class BillForm extends Component {
         />
         </label> */}
         <button
-          onClick={cancelButton}
-        >
-          Cancel
-        </button>
-        <button
           type="submit"
           disabled={pristine || submitting}
         >
           Submit
+        </button>
+        <button
+          onClick={cancelButton}
+        >
+          Cancel
         </button>
       </form>
     </div>

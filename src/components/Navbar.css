@@ -67,6 +67,7 @@
   background-color: #3c517b;
   margin: 0;
   padding: 10px;
+  text-align: right;
 }
 
 .dropdown-menu-ul li {
@@ -108,5 +109,13 @@
 
   .navbar button {
     flex: 20%;
+  }
+
+  .dropdown-menu-ul .bill-form {
+    margin-left: auto;
+  }
+
+  .dropdown-menu-ul .income-form {
+    margin-left: auto;
   }
 }
