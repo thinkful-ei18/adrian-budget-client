@@ -1,4 +1,4 @@
-#Windfall Client
+# Windfall Client
 
 Windfall lets you create a list of bills and see your net income. The live app is deployed at http://adrian-budget-app.netlify.com/.
 
