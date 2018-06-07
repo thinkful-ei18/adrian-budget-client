@@ -48,7 +48,7 @@ export class List extends Component {
 
 export const mapStateToProps = (state, props) => ({
   hasAuthToken: state.currentUser.authToken !== null,
-  userBills: state.bills.list
+  userBills: state.bills.list || []
 });
 
 export default connect(mapStateToProps)(List);
