@@ -4,7 +4,7 @@ import IncomeForm from '../components/IncomeForm';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { logout } from '../actions/user-actions';
+import { login, logout } from '../actions/user-actions';
 
 export class Navbar extends Component {
   toggleMenu () {
@@ -41,7 +41,7 @@ export class Navbar extends Component {
   }
 
   render() {
-    const { loggedIn, user } = this.props;
+    const { loggedIn, user, dispatch } = this.props;
     const navbarIdentifier = `navbar-${user.id}`;
 
     let menu;
@@ -64,8 +64,12 @@ export class Navbar extends Component {
     } else {
       menu =
         <nav className='navbar'>
-          <Link to='/'><h1>Windfall</h1></Link>
+          <Link to='/'><h1 className='loggedout'>Windfall</h1></Link>
           <ul>
+          <button onClick={() => {dispatch(login('demouser', 'thinkful2018'))
+          }}>
+              Demo
+          </button>
             <li>
               <Link to='/register'>Sign up</Link>
             </li>
