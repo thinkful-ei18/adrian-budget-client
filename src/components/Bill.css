@@ -130,3 +130,12 @@
   max-height: 1000px;
   transition: all .75s linear;
 }
+
+@media only screen and (min-width: 768px)  {
+  /* For desktop: */
+
+  .bills-list-container {
+    margin: 0 auto;
+    width: 35%;
+  }
+}
