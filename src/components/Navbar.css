@@ -128,4 +128,10 @@
   .dropdown-menu-ul .income-form {
     margin-left: auto;
   }
+
+  .navbar .loggedout {
+    text-align: left;
+    /* align-self: center; */
+    padding-bottom: 0px;
+  }
 }
