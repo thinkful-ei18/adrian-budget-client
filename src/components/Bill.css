@@ -115,6 +115,10 @@
   text-transform: uppercase;
 }
 
+.onboarding-text {
+  text-align: center;
+}
+
 .collapsible {
   visibility: hidden;
   overflow-y: hidden;
@@ -136,6 +140,6 @@
 
   .bills-list-container {
     margin: 0 auto;
-    width: 35%;
+    width: 40%;
   }
 }

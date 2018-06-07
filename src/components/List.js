@@ -23,7 +23,7 @@ export class List extends Component {
     //   {id: 3, title: 'Charter', amount: 65.99}
     // ];
 
-    if (this.props.userBills) {
+    if (this.props.userBills.length > 0) {
       bills = this.props.userBills;
 
       listItems = bills.map((item, index) =>
@@ -33,7 +33,7 @@ export class List extends Component {
       );
     } else {
       listItems =
-        <li>Let's add your first bill! Click 'New Bill', add its' details, then it'll appear in this list!</li>
+        <li className='onboarding-text'>Let's add your first bill! Click 'Menu', then click 'New Bill' to add your first bill!</li>
     }
 
     return (
