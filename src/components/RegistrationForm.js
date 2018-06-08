@@ -13,7 +13,7 @@ const usernameLength = length({ min: 6, max: 72 });
 
 export class RegistrationForm extends Component {
   handleFormSubmit(values) {
-    this.props.dispatch(register(values));
+    return this.props.dispatch(register(values));
   }
 
   render() {
@@ -76,13 +76,13 @@ export class RegistrationForm extends Component {
               validate={[required, nonEmpty, matchesPassword]}
               placeholder="••••••••"
             />
+            {errorMessage}
             <button
               type="submit"
               disabled={pristine || submitting}
             >
 					    Sign Up
 				    </button>
-            {errorMessage}
           </form>
         </main>
       </div>
@@ -95,6 +95,6 @@ export const mapStateToProps = (state, props) => ({
 });
 
 export default reduxForm({
-	form: "registration",
-	onSubmitFail: (errors, dispatch) => dispatch(focus("registration", Object.keys(errors)[0]))
+	form: "signup",
+	onSubmitFail: (errors, dispatch) => dispatch(focus("signup", Object.keys(errors)[0]))
 })(connect(mapStateToProps)(RegistrationForm));

@@ -53,12 +53,12 @@ export class LoginForm extends Component {
               id="password"
               validate={[required, nonEmpty]}
               />
+            {errorMessage}
 				    <button
               disabled={pristine || submitting}
             >
               Log in
             </button>
-            {errorMessage}
           </form>
         </main>
       </div>
@@ -72,5 +72,5 @@ export const mapStateToProps = (state, props) => ({
 
 export default reduxForm({
   form: 'login',
-  onSubmitFail: (errors, dispatch) => dispatch(focus("BillForm", Object.keys(errors)[0]))
+  onSubmitFail: (errors, dispatch) => dispatch(focus("login", Object.keys(errors)[0]))
 })(connect(mapStateToProps)(LoginForm));
