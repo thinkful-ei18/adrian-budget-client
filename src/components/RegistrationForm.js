@@ -3,12 +3,13 @@ import { Field, reduxForm, focus } from "redux-form";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Input from "./Input";
-import { required, nonEmpty, matches, length, isTrimmed } from "../utils/validators";
+import { required, nonEmpty, matches, length, isTrimmed, maxDigits } from "../utils/validators";
 import { register } from '../actions/user-actions';
 import './RegistrationForm.css';
 
 const passwordLength = length({ min: 12, max: 72 });
 const matchesPassword = matches("password");
+const usernameLength = length({ min: 6, max: 72 });
 
 export class RegistrationForm extends Component {
   handleFormSubmit(values) {
@@ -43,7 +44,8 @@ export class RegistrationForm extends Component {
               component={Input}
               type="text"
               name="firstname"
-              placeholder="Sally"/>
+              placeholder="Sally"
+              validate={[required, isTrimmed]}/>
             <Field
               label="Monthly Income"
               component={Input}
@@ -51,14 +53,14 @@ export class RegistrationForm extends Component {
               name="income"
               placeholder="2000"
               parse={value => Number(value)}
-              validate={[required]}
+              validate={[required, maxDigits]}
               />
             <Field component={Input}
               label="Username"
               type="text"
               name="username"
               placeholder="sally123"
-              validate={[required, nonEmpty, isTrimmed]} />
+              validate={[required, nonEmpty, isTrimmed, usernameLength]} />
             <Field
               label="Password"
               component={Input}

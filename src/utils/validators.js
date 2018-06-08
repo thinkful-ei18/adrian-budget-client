@@ -15,3 +15,5 @@ export const matches = field => (value, allValues) =>
     field in allValues && value.trim() === allValues[field].trim()
         ? undefined
         : 'Does not match';
+export const checkDigits = /\d{4}|\d{8}/g;
+export const maxDigits = value => checkDigits.test(value) ? 'Monthly income can only be 8 digits max' : undefined
