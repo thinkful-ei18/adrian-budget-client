@@ -27,7 +27,7 @@ export class RegistrationForm extends Component {
     if (error) {
 			errorMessage = (
 				<div className="form-error" aria-live="polite">
-					{error}
+					<p><b>{error}</b></p>
 				</div>
 			);
 		}
@@ -91,7 +91,8 @@ export class RegistrationForm extends Component {
 }
 
 export const mapStateToProps = (state, props) => ({
-	loggedIn: state.currentUser.info !== null,
+  loggedIn: state.currentUser.info !== null,
+  error: state.currentUser.error || ''
 });
 
 export default reduxForm({

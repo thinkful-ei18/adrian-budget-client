@@ -1,6 +1,6 @@
 import { API_BASE_URL } from '../config';
 // import { SubmissionError } from 'redux-form';
-import SubmissionError from 'redux-form/lib/SubmissionError'
+// import SubmissionError from 'redux-form/lib/SubmissionError'
 import { normalizeResponseErrors } from '../utils/normalize-errors';
 import { saveAuthToken, clearAuthToken, saveUserCredentials } from '../local-storage';
 import { clearBills } from './bills-actions';
@@ -39,13 +39,13 @@ export const register = user => dispatch => {
   })
     .catch(err => {
       const message = err.message ? err.message : 'Unable to register, please try again';
-      dispatch(registerError(err));
+      return dispatch(registerError(message));
 
-        return Promise.reject(
-          new SubmissionError({
-            _error: message,
-          })
-        );
+        // return Promise.reject(
+        //   new SubmissionError({
+        //     _error: err,
+        //   })
+        // );
     });
 };
 
@@ -85,13 +85,13 @@ export const login = (username, password) => dispatch => {
       .catch(err => {
 
         const message = err.message ? err.message : 'Unable to login, please try again';
-        dispatch(loginError(err));
+       return  dispatch(loginError(message));
 
-        return Promise.reject(
-          new SubmissionError({
-            _error: message,
-          })
-        );
+        // return Promise.reject(
+        //   new SubmissionError({
+        //     _error: message,
+        //   })
+        // );
       })
   );
 };
