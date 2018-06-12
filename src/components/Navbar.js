@@ -76,7 +76,7 @@ export class Navbar extends Component {
           <Link to='/'><h1 className='loggedout'>Windfall</h1></Link>
           <ul>
           <button onClick={() => {
-            // this.moveDemoUser();
+            this.moveDemoUser();
             this.loginDemoUser();
           }}>
               Demo
