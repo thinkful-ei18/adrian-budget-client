@@ -7,4 +7,4 @@ It's built with React JS, React Redux, Redux Forms and a mobile-first design. I 
 ![windfall preview|549x795, 50%](https://res.cloudinary.com/adriantoddross/image/upload/v1528352170/windfall-preview.gif)
 
 ### API Documentation & Server Repo
-The repo for the backend and API documentation can be found at: https://github.com/thinkful-ei18/adrian-budget-server. It is built with Express.js, PostgresQL, and knex.js, and deployed with Heroku.
+The repo for the backend and API documentation can be found at: https://github.com/thinkful-ei18/windfall-server. It is built with Express.js, PostgresQL, and knex.js, and deployed with Heroku.
