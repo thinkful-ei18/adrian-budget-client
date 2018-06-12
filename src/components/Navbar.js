@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { login, logout } from '../actions/user-actions';
+import { login, logout, loginDemoUser } from '../actions/user-actions';
 
 export class Navbar extends Component {
   toggleMenu () {
@@ -76,8 +76,7 @@ export class Navbar extends Component {
           <Link to='/'><h1 className='loggedout'>Windfall</h1></Link>
           <ul>
           <button onClick={() => {
-            this.moveDemoUser();
-            this.loginDemoUser();
+            this.props.dispatch(loginDemoUser());
           }}>
               Demo
           </button>

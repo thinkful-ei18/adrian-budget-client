@@ -2,6 +2,7 @@ import { API_BASE_URL } from '../config';
 // import { SubmissionError } from 'redux-form';
 // import SubmissionError from 'redux-form/lib/SubmissionError'
 import { normalizeResponseErrors } from '../utils/normalize-errors';
+
 import { saveAuthToken, clearAuthToken, saveUserCredentials } from '../local-storage';
 import { clearBills } from './bills-actions';
 import jwtDecode from 'jwt-decode';
@@ -188,4 +189,9 @@ export const updateIncome = income => (dispatch, getState) => {
       }
     })
     .catch(err => dispatch(updateIncomeError(err)));
+};
+
+
+export const loginDemoUser = () => (dispatch, getState) => {
+  dispatch(login('demouser', 'thinkful2018'));
 };
